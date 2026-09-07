@@ -14,7 +14,27 @@ npm run data      # PDFs → sqlite → public/bundle.json
 npm run dev       # http://localhost:5173
 ```
 
-Six programmes, 73 courses, 88 sessions, 45 exams, from 13 PDFs (2026-27, plus the MUIA 2025/26 web timetable).
+Six programmes, 73 courses, 88 sessions, 45 exams, from 13 PDFs (2026-27).
+
+---
+
+## Deploy
+
+**Vercel.** Import the repo; the committed `vercel.json` already sets the Vite
+build (`npm run build`, output `dist`). The build regenerates `bundle.json`
+from the committed PDFs, so no environment variables are needed.
+
+**Supabase.** The app serves the static `public/bundle.json`; Supabase is a
+read-only mirror of that snapshot for querying elsewhere:
+
+1. Create a project at supabase.com.
+2. Apply `supabase/migrations/0001_schema.sql` — paste it into the SQL editor,
+   or `supabase link` + `supabase db push`.
+3. Copy `.env.example` to `.env` and fill in `SUPABASE_URL` plus the
+   **service-role** key (never the anon key — seeding wipes and rewrites).
+4. `npm run data && npm run supabase:seed`
+
+Re-seed whenever the PDFs change; the seed always replaces the full snapshot.
 
 ---
 
