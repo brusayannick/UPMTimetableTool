@@ -1,0 +1,96 @@
+{
+ "scriptHash": "8ecf340cb6fefa73",
+ "files": {
+  "timetables--1885-dsc-muid-exams-2026-27-january": {
+   "sha256": "9a241e28dc798a186652b8096ca4a10b010a1209ecd85e6184ba9c3054868f51",
+   "bytes": 44816,
+   "runs": 50,
+   "rects": 24,
+   "imageOnly": false
+  },
+  "timetables--1885-dsc-muid-schedule-2026-27-1s": {
+   "sha256": "867d57dce33b67c2fdbf52086d715bd5b127442ccf921991fa8ab1c0ef777d7e",
+   "bytes": 80070,
+   "runs": 45,
+   "rects": 58,
+   "imageOnly": false
+  },
+  "timetables--1885-dsc-muid-schedule-2026-27-3s": {
+   "sha256": "4cc3d0c5d953acf1ef15f91bef1e8ef30d7ec69cb32ae9c8246a443fa067b008",
+   "bytes": 81060,
+   "runs": 48,
+   "rects": 60,
+   "imageOnly": false
+  },
+  "timetables--2235-hcid-muid-exams-2026-27-january": {
+   "sha256": "9e1d2dfd7c7d602f5afb6aed05bf9bdf4eb5765706a8d3cbc370e55c7328a0b8",
+   "bytes": 44725,
+   "runs": 63,
+   "rects": 28,
+   "imageOnly": false
+  },
+  "timetables--2235-hcid-muid-schedule-2026-27-1s": {
+   "sha256": "46a9baf768b88b3cec6bd3c4a96405f1c7df5b9b75431b1bbdd8a07b016a85a6",
+   "bytes": 81014,
+   "runs": 43,
+   "rects": 65,
+   "imageOnly": false
+  },
+  "timetables--2235-hcid-muid-schedule-2026-27-3s": {
+   "sha256": "9de4f6c729dad4d4415af6af261033e55469599b504ba1b209157d65214baf76",
+   "bytes": 78370,
+   "runs": 34,
+   "rects": 57,
+   "imageOnly": false
+  },
+  "timetables--2481-hmda-muid-exams-2026-27-january": {
+   "sha256": "63cd0ddfa7584e0b6a3ed3318802b8db59130e2edaba9a5bdb4ba5527ee2aedb",
+   "bytes": 123894,
+   "runs": 56,
+   "rects": 31,
+   "imageOnly": false
+  },
+  "timetables--2481-hmda-muid-schedule-2026-27-1s": {
+   "sha256": "2030cddc4234153af3dd6e523654695092ce8b40c8e030cdb32224df2442f3dd",
+   "bytes": 130658,
+   "runs": 55,
+   "rects": 46,
+   "imageOnly": false
+  },
+  "timetables--2481-hmda-muid-schedule-2026-27-3s": {
+   "sha256": "87be57b474868501b57614fa9642fb8f1a4f1f3779f034b6ddb151adc9bba70d",
+   "bytes": 100484,
+   "runs": 43,
+   "rects": 43,
+   "imageOnly": false
+  },
+  "timetables--2603-fintech-muid-exams-2026-27-january": {
+   "sha256": "903dca0ddc993cad82016fb426d966616782088a22e9e34e47b7c114d0df56f1",
+   "bytes": 41277,
+   "runs": 30,
+   "rects": 20,
+   "imageOnly": false
+  },
+  "timetables--2603-fintech-muid-schedule-2026-27-1s": {
+   "sha256": "e6ff11532bdff35de32cdca7337f9419f8db2271c53d8498a13d6487dfb22eb1",
+   "bytes": 76507,
+   "runs": 39,
+   "rects": 47,
+   "imageOnly": false
+  },
+  "timetables--timetable--master-s-degree-in-artificial-intelligence": {
+   "sha256": "44adf92aa1cc944b40335f8c5a8cdf43eeab536eca2eaef97a6bf78cb6372d9a",
+   "bytes": 1779481,
+   "runs": 165,
+   "rects": 165,
+   "imageOnly": false
+  },
+  "timetables--timetable-26-27--master-universitario-en-ciencia-de-datos": {
+   "sha256": "dcdb4fb51a1d0926b58140a31850ebdd87ad30968b0fb3153978c8c84956abae",
+   "bytes": 1932285,
+   "runs": 97,
+   "rects": 84,
+   "imageOnly": false
+  }
+ }
+}

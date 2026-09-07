@@ -1,0 +1,58 @@
+{
+  "programmes": [
+    {
+      "code": "1885",
+      "colour": "#1d4ed8",
+      "lang": "en",
+      "name": "EIT Digital Data Science Master",
+      "short": "DSC"
+    },
+    {
+      "code": "2235",
+      "colour": "#7e22ce",
+      "lang": "en",
+      "name": "EIT Digital Master in Human Computer Interaction and Design",
+      "short": "HCID"
+    },
+    {
+      "code": "2481",
+      "colour": "#047857",
+      "lang": "en",
+      "name": "Master's Programme in Health and Medical Data Analytics",
+      "short": "HMDA"
+    },
+    {
+      "code": "2603",
+      "colour": "#b45309",
+      "lang": "en",
+      "name": "EIT Digital Fintech Master",
+      "short": "Fintech"
+    },
+    {
+      "code": "10BA",
+      "short": "MUCD",
+      "name": "Máster Universitario en Ciencia de Datos",
+      "lang": "en",
+      "colour": "#be123c"
+    },
+    {
+      "code": "MUIA",
+      "short": "AI",
+      "name": "Máster Universitario en Inteligencia Artificial",
+      "lang": "es",
+      "colour": "#4d7c0f"
+    }
+  ],
+  "semesters": [
+    {
+      "code": "1S",
+      "labelEn": "First semester",
+      "labelEs": "Primer semestre"
+    },
+    {
+      "code": "3S",
+      "labelEn": "Third semester",
+      "labelEs": "Tercer semestre"
+    }
+  ]
+}

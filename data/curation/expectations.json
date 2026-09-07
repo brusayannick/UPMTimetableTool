@@ -1,0 +1,206 @@
+{
+  "$comment": [
+    "Reset for 2026-27. files{} will be seeded from a verified parse run."
+  ],
+  "examlessCourses": [
+    {
+      "programme": "1885",
+      "name": "Circular economy, digital product intelligence & sustainability",
+      "why": "Taught Tuesday 17:00-19:00 in the DSC 3S timetable but has no entry in the DSC January exam calendar. Project-assessed, so correctly absent from exams."
+    },
+    {
+      "programme": "10BA",
+      "name": "Cloud Computing and Big Data Ecosystems",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "10BA",
+      "name": "Data Processes",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "10BA",
+      "name": "Data Visualization/Big Data",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "10BA",
+      "name": "Generative AI and Language Models",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "10BA",
+      "name": "Machine Learning",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "10BA",
+      "name": "Open Data and Knowledge Graphs",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "10BA",
+      "name": "Statistical Data Analysis",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A10: Programmable Biology: DNA Computing and Biocircuit Engineering",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A11: Logic Programming",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A12: Multi-agent Systems",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A13: Ontological Engineering",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A14: Reasoning Models",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A15: Computer Vision",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A16: Autonomous Robots",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A17: Biomedical Informatics",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A18: Linguistic Engineering",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A19: Web Science",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A1: Decision Support Systems",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A20: Deep Learning for Natural Language Processing",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A2: Participative Decision and Negotiation",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A3: Simulation Methods",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A4: Bayesian Networks",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A5: Machine Learning",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A6: Artificial Neural Networks and Deep Learning",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A7: Explainable Artificial Intelligence",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A8: Intelligent Search based on Metaheuristics",
+      "why": "No exam calendar published for this programme in this corpus."
+    },
+    {
+      "programme": "MUIA",
+      "name": "A9: Evolutionary Computation",
+      "why": "No exam calendar published for this programme in this corpus."
+    }
+  ],
+  "files": {
+    "timetables/1885_DSC MUID_schedule_2026-27_1S.pdf": {
+      "courses": 7,
+      "filler": 0
+    },
+    "timetables/1885_DSC MUID_schedule_2026-27_3S.pdf": {
+      "courses": 9,
+      "filler": 0
+    },
+    "timetables/2235_HCID MUID_schedule_2026-27_1S.pdf": {
+      "courses": 9,
+      "filler": 0
+    },
+    "timetables/2235_HCID_MUID_schedule_2026-27_3S.pdf": {
+      "courses": 7,
+      "filler": 0
+    },
+    "timetables/2481_HMDA_MUID_schedule_2026-27_1S.pdf": {
+      "courses": 9,
+      "filler": 1
+    },
+    "timetables/2481_HMDA_MUID_schedule_2026-27_3S.pdf": {
+      "courses": 5,
+      "filler": 0
+    },
+    "timetables/2603_Fintech MUID_schedule_2026-27_1S.pdf": {
+      "courses": 9,
+      "filler": 0
+    },
+    "timetables/1885_DSC MUID_exams_2026-27_january.pdf": {
+      "exams": 13
+    },
+    "timetables/2235_HCID MUID_exams_2026-27_january.pdf": {
+      "exams": 14
+    },
+    "timetables/2481_HMDA_MUID_exams_2026-27_january.pdf": {
+      "exams": 14
+    },
+    "timetables/2603_Fintech MUID_exams_2026-27_january.pdf": {
+      "exams": 5
+    },
+    "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf": {
+      "courses": 8,
+      "filler": 3
+    },
+    "timetables/Timetable - Master's Degree in Artificial Intelligence.pdf": {
+      "courses": 25,
+      "filler": 0
+    }
+  },
+  "multiExamCourses": [],
+  "orphanExams": [
+    {
+      "programme": "2481",
+      "name": "Devices and Biometric Aplications for e-Health",
+      "why": "Printed in the HMDA 2026-27 exam calendar (Aplications misspelled) but absent from both HMDA timetables. Recorded as exam-only."
+    }
+  ],
+  "sessionlessCourses": []
+}

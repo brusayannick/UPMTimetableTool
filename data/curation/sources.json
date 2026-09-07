@@ -1,0 +1,245 @@
+{
+  "$comment": [
+    "Only the 2026-27 PDFs in timetables/ are in scope. INPUT_DIRS is [timetables], so exams/ is not scanned.",
+    "Geometry hints are the minimum the parser cannot derive."
+  ],
+  "sources": [
+    {
+      "kind": "timetable",
+      "labelColumnMaxX": 59.6,
+      "layoutFamily": "T2",
+      "path": "timetables/1885_DSC MUID_schedule_2026-27_1S.pdf",
+      "programme": "1885",
+      "role": "primary",
+      "semester": "1S",
+      "subGrids": [
+        {
+          "banner": "Mornings",
+          "headerOverride": [
+            "10:00-10:30",
+            "10:30-11:00",
+            "11:00-11:30",
+            "11:30-12:00",
+            "12:00-12:30",
+            "12:30-13:00",
+            "13:00-13:30",
+            "13:30-14:00"
+          ],
+          "label": "Mornings"
+        },
+        {
+          "banner": "Evenings",
+          "label": "Evenings"
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "labelColumnMaxX": 63.7,
+      "layoutFamily": "T2",
+      "path": "timetables/1885_DSC MUID_schedule_2026-27_3S.pdf",
+      "programme": "1885",
+      "role": "primary",
+      "semester": "3S",
+      "subGrids": [
+        {
+          "banner": "Mornings",
+          "label": "Mornings"
+        },
+        {
+          "banner": "Evenings",
+          "label": "Evenings"
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "labelColumnMaxX": 79.8,
+      "layoutFamily": "T2",
+      "path": "timetables/2235_HCID MUID_schedule_2026-27_1S.pdf",
+      "programme": "2235",
+      "role": "primary",
+      "semester": "1S",
+      "subGrids": [
+        {
+          "banner": "Morning",
+          "label": "Morning"
+        },
+        {
+          "banner": "Evening",
+          "label": "Evening"
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "labelColumnMaxX": 83.5,
+      "layoutFamily": "T2",
+      "path": "timetables/2235_HCID_MUID_schedule_2026-27_3S.pdf",
+      "programme": "2235",
+      "role": "primary",
+      "semester": "3S",
+      "subGrids": [
+        {
+          "banner": "Morning",
+          "label": "Morning"
+        },
+        {
+          "banner": "Evening",
+          "label": "Evening"
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "layoutFamily": "T3",
+      "path": "timetables/2481_HMDA_MUID_schedule_2026-27_1S.pdf",
+      "programme": "2481",
+      "role": "primary",
+      "semester": "1S",
+      "subGrids": [
+        {
+          "label": "Morning",
+          "xFrom": 65.0,
+          "xTo": 244.0,
+          "labelColumn": {
+            "x0": 5.8,
+            "x1": 65.5
+          }
+        },
+        {
+          "label": "Evening",
+          "xFrom": 305.0,
+          "xTo": 640.0,
+          "labelColumn": {
+            "x0": 243.0,
+            "x1": 305.5
+          }
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "layoutFamily": "T3",
+      "path": "timetables/2481_HMDA_MUID_schedule_2026-27_3S.pdf",
+      "programme": "2481",
+      "role": "primary",
+      "semester": "3S",
+      "subGrids": [
+        {
+          "label": "Morning",
+          "xFrom": 65.0,
+          "xTo": 244.0,
+          "labelColumn": {
+            "x0": 5.8,
+            "x1": 65.5
+          }
+        },
+        {
+          "label": "Evening",
+          "xFrom": 305.0,
+          "xTo": 640.0,
+          "labelColumn": {
+            "x0": 243.0,
+            "x1": 305.5
+          }
+        }
+      ]
+    },
+    {
+      "kind": "timetable",
+      "labelColumnMaxX": 78.5,
+      "layoutFamily": "T4",
+      "path": "timetables/2603_Fintech MUID_schedule_2026-27_1S.pdf",
+      "programme": "2603",
+      "role": "primary",
+      "semester": "1S",
+      "subGrids": [
+        {
+          "label": "Day"
+        }
+      ]
+    },
+    {
+      "kind": "exam",
+      "labelColumnMaxX": 49.8,
+      "layoutFamily": "E-b",
+      "path": "timetables/1885_DSC MUID_exams_2026-27_january.pdf",
+      "programme": "1885",
+      "role": "primary",
+      "slotBandsFrom": "labelText"
+    },
+    {
+      "kind": "exam",
+      "labelColumnMaxX": 85.2,
+      "layoutFamily": "E-b",
+      "path": "timetables/2235_HCID MUID_exams_2026-27_january.pdf",
+      "programme": "2235",
+      "role": "primary",
+      "slotBandsFrom": "labelRects"
+    },
+    {
+      "kind": "exam",
+      "labelColumnMaxX": 47.9,
+      "layoutFamily": "E-c",
+      "path": "timetables/2481_HMDA_MUID_exams_2026-27_january.pdf",
+      "programme": "2481",
+      "role": "primary",
+      "slotBandsFrom": "labelText",
+      "subGrids": [
+        {
+          "label": "Morning",
+          "xFrom": 65.0,
+          "xTo": 244.0,
+          "labelColumn": {
+            "x0": 5.8,
+            "x1": 65.5
+          }
+        },
+        {
+          "label": "Evening",
+          "xFrom": 305.0,
+          "xTo": 640.0,
+          "labelColumn": {
+            "x0": 243.0,
+            "x1": 305.5
+          }
+        }
+      ]
+    },
+    {
+      "kind": "exam",
+      "labelColumnMaxX": 60.0,
+      "layoutFamily": "E-b",
+      "path": "timetables/2603_Fintech MUID_exams_2026-27_january.pdf",
+      "programme": "2603",
+      "role": "primary",
+      "slotBandsFrom": "labelText"
+    },
+    {
+      "path": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+      "kind": "timetable",
+      "layoutFamily": "T5",
+      "programme": "10BA",
+      "semester": "1S",
+      "role": "primary",
+      "pages": [
+        0
+      ],
+      "$note": "Web print, 3 pages; the 1st-semester elective table is on page 1, pages 2-3 are website navigation with no timetable."
+    },
+    {
+      "path": "timetables/Timetable - Master's Degree in Artificial Intelligence.pdf",
+      "kind": "timetable",
+      "layoutFamily": "T6",
+      "programme": "MUIA",
+      "semester": "1S",
+      "role": "primary",
+      "pages": [
+        0
+      ],
+      "roomDefault": "6201",
+      "$note": "Web print, 3 pages; page 1 is the 2026-27 A-subject grid (all subjects first-semester, room 6201 per the grid title), page 2 holds one-off dated seminars, page 3 is website navigation."
+    }
+  ]
+}

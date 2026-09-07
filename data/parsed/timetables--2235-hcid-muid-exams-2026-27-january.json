@@ -1,0 +1,165 @@
+{
+ "kind": "exam",
+ "sourcePath": "timetables/2235_HCID MUID_exams_2026-27_january.pdf",
+ "layoutFamily": "E-b",
+ "extractionMethod": "pdfjs",
+ "programme": "2235",
+ "exams": [
+  {
+   "rawName": "I&E Study",
+   "date": "2027-01-11",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Introduction to Innovation and Entrepreneurship Management",
+   "date": "2027-01-12",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "explicit_range",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "HCI Basics: Introduction and Design Methods",
+   "date": "2027-01-11",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "slot_default2h",
+   "slotLabel": "12:00–15:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Programming of User Interfaces",
+   "date": "2027-01-12",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "slot_default2h",
+   "slotLabel": "12:00–15:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "E-Health: promoting active and healthy aging",
+   "date": "2027-01-13",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "slot_default2h",
+   "slotLabel": "12:00–15:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Environments: Technologies, Architectures and Applications",
+   "date": "2027-01-14",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "slot_default2h",
+   "slotLabel": "12:00–15:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Ethics for User Research 1",
+   "date": "2027-01-15",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "slot_default2h",
+   "slotLabel": "12:00–15:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Ethics for User Research 2",
+   "date": "2027-01-15",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "slot_default2h",
+   "slotLabel": "12:00–15:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Challenges for Accessible Computing for People with Functional Diversity",
+   "date": "2027-01-13",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Accessible Design of Interactive Systems",
+   "date": "2027-01-13",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "User Experience and Mobile Interaction",
+   "date": "2027-01-15",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Assistive Products",
+   "date": "2027-01-19",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Adaptive Systems",
+   "date": "2027-01-11",
+   "startMin": 1080,
+   "endMin": 1200,
+   "durationSource": "slot_default2h",
+   "slotLabel": "18:00–20:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Management Relationships and Communication in Working Groups",
+   "date": "2027-01-19",
+   "startMin": 1080,
+   "endMin": 1200,
+   "durationSource": "slot_default2h",
+   "slotLabel": "18:00–20:00",
+   "room": null,
+   "semester": null
+  }
+ ],
+ "diagnostics": [
+  {
+   "severity": "info",
+   "code": "CELL_SPLIT_ON_PLACEHOLDER",
+   "sourcePath": "timetables/2235_HCID MUID_exams_2026-27_january.pdf",
+   "subject": "Ethics for User Research 1 //////// Ethics for User Research 2",
+   "detail": "split into 2 entries on the printed //// divider"
+  },
+  {
+   "severity": "info",
+   "code": "CELL_SPLIT_ON_PLACEHOLDER",
+   "sourcePath": "timetables/2235_HCID MUID_exams_2026-27_january.pdf",
+   "subject": "Challenges for Accessible Computing for People with Functional Diversity ///////// Accessible Design of Interactive Systems",
+   "detail": "split into 2 entries on the printed //// divider"
+  }
+ ]
+}

@@ -1,0 +1,111 @@
+{
+ "kind": "timetable",
+ "sourcePath": "timetables/2481_HMDA_MUID_schedule_2026-27_1S.pdf",
+ "layoutFamily": "T3",
+ "extractionMethod": "pdfjs",
+ "programme": "2481",
+ "semester": "1S",
+ "sessions": [
+  {
+   "rawName": "Introduction to Innovation and Entrepreneurship Management",
+   "weekday": 4,
+   "startMin": 600,
+   "endMin": 840,
+   "room": "6001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Data Processes",
+   "weekday": 1,
+   "startMin": 960,
+   "endMin": 1080,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": 26.31749999999994
+  },
+  {
+   "rawName": "Big Data / Data Visualization",
+   "weekday": 1,
+   "startMin": 1080,
+   "endMin": 1260,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": 26.31749999999994
+  },
+  {
+   "rawName": "Statistical Data Analysis",
+   "weekday": 2,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": 31.496249999999975
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "weekday": 2,
+   "startMin": 1140,
+   "endMin": 1260,
+   "room": "6302",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": 31.496249999999975
+  },
+  {
+   "rawName": "Machine Learning",
+   "weekday": 2,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": 31.496249999999975
+  },
+  {
+   "rawName": "Cloud Computing and Big Data Ecosystems",
+   "weekday": 3,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Generative AI and Language Models",
+   "weekday": 3,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "weekday": 5,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "6302",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  }
+ ],
+ "fillerCount": 1,
+ "diagnostics": []
+}

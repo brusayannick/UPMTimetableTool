@@ -1,0 +1,89 @@
+{
+ "kind": "timetable",
+ "sourcePath": "timetables/2235_HCID_MUID_schedule_2026-27_3S.pdf",
+ "layoutFamily": "T2",
+ "extractionMethod": "pdfjs",
+ "programme": "2235",
+ "semester": "3S",
+ "sessions": [
+  {
+   "rawName": "I&E Study",
+   "weekday": 2,
+   "startMin": 600,
+   "endMin": 780,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "eHealth: Promoting Healthy Ageing",
+   "weekday": 3,
+   "startMin": 600,
+   "endMin": 720,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Ethics for User Research 2",
+   "weekday": 5,
+   "startMin": 660,
+   "endMin": 840,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Assistive Products",
+   "weekday": 2,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Accessible Design of Interactive Systems",
+   "weekday": 2,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Adaptive Systems",
+   "weekday": 3,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Management, Relationships and Communication in Working Groups",
+   "weekday": 4,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  }
+ ],
+ "fillerCount": 0,
+ "diagnostics": []
+}

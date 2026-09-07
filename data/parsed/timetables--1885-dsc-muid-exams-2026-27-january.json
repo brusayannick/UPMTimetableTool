@@ -1,0 +1,155 @@
+{
+ "kind": "exam",
+ "sourcePath": "timetables/1885_DSC MUID_exams_2026-27_january.pdf",
+ "layoutFamily": "E-b",
+ "extractionMethod": "pdfjs",
+ "programme": "1885",
+ "exams": [
+  {
+   "rawName": "I&E Study",
+   "date": "2027-01-11",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "explicit_range",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Introduction to Innovation and Entrepreneurship Management",
+   "date": "2027-01-12",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "explicit_range",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Complex Data in Health",
+   "date": "2027-01-14",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "explicit_range",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Massively Parallel Machine Learning",
+   "date": "2027-01-18",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Big Data / Data Visualization",
+   "date": "2027-01-11",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "date": "2027-01-12",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Cloud Computing and Big Data Ecosystems Design",
+   "date": "2027-01-14",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Data Mining and Time series",
+   "date": "2027-01-15",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Generative AI and Language Models",
+   "date": "2027-01-15",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Intelligent Systems",
+   "date": "2027-01-18",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Statistical Data Analysis",
+   "date": "2027-01-19",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Data Processes",
+   "date": "2027-01-20",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Data Analysis",
+   "date": "2027-01-20",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  }
+ ],
+ "diagnostics": [
+  {
+   "severity": "info",
+   "code": "CELL_SPLIT_ON_PLACEHOLDER",
+   "sourcePath": "timetables/1885_DSC MUID_exams_2026-27_january.pdf",
+   "subject": "Data Mining and Time series ////// Generative AI and Language Models",
+   "detail": "split into 2 entries on the printed //// divider"
+  },
+  {
+   "severity": "info",
+   "code": "CELL_SPLIT_ON_PLACEHOLDER",
+   "sourcePath": "timetables/1885_DSC MUID_exams_2026-27_january.pdf",
+   "subject": "Data Processes /////// Data Analysis",
+   "detail": "split into 2 entries on the printed //// divider"
+  }
+ ]
+}

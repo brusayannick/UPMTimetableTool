@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "canonical": {
+    "ehealth-promoting-active-and-healthy-ageing": {
+      "label": "E-Health: Promoting Active and Healthy Ageing",
+      "variants": [
+        "E-Health: promoting active and healthy aging",
+        "eHealth: Promoting Healthy Ageing",
+        "E-health: Promoting Active and Healthy Ageing",
+        "E-Health: Promoting Healthy Ageing"
+      ],
+      "note": "One course printed four ways across HCID/HMDA timetables and exam calendars in 2026-27. Verified: all three programmes place it 13 Jan (HMDA via printed 12:00 h. override)."
+    },
+    "intelligent-virtual-environments": {
+      "label": "Intelligent Virtual Environments: Technologies, Architectures and Applications",
+      "variants": [
+        "Environments: Technologies, Architectures and Applications",
+        "Intelligent Virtual Environments: Technologies, Architectures And Applications"
+      ],
+      "note": "HCID exam PDF omits Intelligent Virtual, same truncation as 2025-26. Timetable prints the full name."
+    },
+    "cloud-computing-and-big-data-ecosystems-design": {
+      "label": "Cloud Computing and Big Data Ecosystems Design",
+      "variants": [
+        "Cloud Computing and Big Data Ecosystems"
+      ],
+      "note": "HMDA timetable and exam calendar drop the trailing Design; DSC prints it. Same date/time 14 Jan 15:00 in both."
+    },
+    "big-data-data-visualization": {
+      "label": "Big Data / Data Visualization",
+      "variants": [
+        "Data Visualization/Big Data",
+        "Big Data/Data Visualization"
+      ],
+      "note": "One course printed three ways: DSC/HMDA print Big Data / Data Visualization, the MUCD web timetable prints Data Visualization/Big Data. Same January exam slot (11 Jan 15:00) in DSC/HMDA."
+    }
+  },
+  "splits": {},
+  "equivalents": []
+}

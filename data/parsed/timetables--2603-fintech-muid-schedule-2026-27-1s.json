@@ -1,0 +1,115 @@
+{
+ "kind": "timetable",
+ "sourcePath": "timetables/2603_Fintech MUID_schedule_2026-27_1S.pdf",
+ "layoutFamily": "T4",
+ "extractionMethod": "pdfjs",
+ "programme": "2603",
+ "semester": "1S",
+ "sessions": [
+  {
+   "rawName": "Verification and Validation",
+   "weekday": 1,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "6305",
+   "elective": false,
+   "validity": {
+    "label": "Weeks 1-7",
+    "from": "2026-09-07",
+    "to": "2026-10-25"
+   },
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Blockchain and Services for Fintech Enterprise Integration",
+   "weekday": 2,
+   "startMin": 900,
+   "endMin": 990,
+   "room": "6302",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Requirements Engineering",
+   "weekday": 2,
+   "startMin": 1140,
+   "endMin": 1200,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Blockchain and Services for Fintech Enterprise Integration",
+   "weekday": 3,
+   "startMin": 900,
+   "endMin": 990,
+   "room": "6302",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Verification and Validation",
+   "weekday": 4,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "I&E Basics: Introduction to Innovation and Entrepreneurship Management",
+   "weekday": 4,
+   "startMin": 600,
+   "endMin": 840,
+   "room": "6001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Fundamentals of finance",
+   "weekday": 5,
+   "startMin": 900,
+   "endMin": 960,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Fundamentals of finance",
+   "weekday": 5,
+   "startMin": 720,
+   "endMin": 840,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "inferred",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Requirements Engineering",
+   "weekday": 5,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  }
+ ],
+ "fillerCount": 0,
+ "diagnostics": []
+}

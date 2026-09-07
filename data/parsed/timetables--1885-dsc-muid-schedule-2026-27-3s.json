@@ -1,0 +1,111 @@
+{
+ "kind": "timetable",
+ "sourcePath": "timetables/1885_DSC MUID_schedule_2026-27_3S.pdf",
+ "layoutFamily": "T2",
+ "extractionMethod": "pdfjs",
+ "programme": "1885",
+ "semester": "3S",
+ "sessions": [
+  {
+   "rawName": "I&E Study",
+   "weekday": 2,
+   "startMin": 600,
+   "endMin": 780,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Data Mining and Time Series",
+   "weekday": 1,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "6001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Complex Data in Health",
+   "weekday": 2,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Circular economy, digital product intelligence & sustainability",
+   "weekday": 2,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "weekday": 2,
+   "startMin": 1140,
+   "endMin": 1260,
+   "room": "6302",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Cloud Computing and Big Data Ecosystems Design",
+   "weekday": 3,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Massively Parallel Machine Learning",
+   "weekday": 3,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Data Analysis",
+   "weekday": 4,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "weekday": 5,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "6302",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  }
+ ],
+ "fillerCount": 0,
+ "diagnostics": []
+}

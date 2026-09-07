@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/*
+ * One neutral scale plus six programme accents. Red and amber appear *only* on
+ * collisions and assumptions, so that when they do appear they read as signal
+ * rather than decoration.
+ */
+@theme {
+  --color-prog-1645: #c2410c;
+  --color-prog-1885: #1d4ed8;
+  --color-prog-2235: #7e22ce;
+  --color-prog-2481: #047857;
+  --color-prog-2603: #b45309;
+  --color-prog-MUIS: #0e7490;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  :root {
+    --surface: #ffffff;
+    --surface-sunken: #f6f7f9;
+    --surface-raised: #ffffff;
+    --line: #e3e6ea;
+    --line-strong: #c9ced6;
+    --text: #16181d;
+    --text-dim: #5b6270;
+    --text-faint: #8b93a1;
+    --danger: #d0342c;
+    --danger-bg: #fdecea;
+    --caution: #b45309;
+    --caution-bg: #fdf4e3;
+    /* How strongly a course block is tinted with its programme accent. Dark themes
+       need more of it: 12% of a saturated hue over a near-black surface is invisible. */
+    --tint: 12%;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #14161a;
+      --surface-sunken: #0e1013;
+      --surface-raised: #1b1e24;
+      --line: #282c34;
+      --line-strong: #3a404a;
+      --text: #e8eaee;
+      --text-dim: #a0a7b4;
+      --text-faint: #737b89;
+      --danger: #ff6b60;
+      --danger-bg: #2e1614;
+      --caution: #e8a33d;
+      --caution-bg: #2b2113;
+      --tint: 26%;
+      color-scheme: dark;
+    }
+  }
+
+  html, body, #root { height: 100%; }
+
+  body {
+    background: var(--surface-sunken);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  ::selection { background: color-mix(in oklab, var(--text) 16%, transparent); }
+
+  :focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 11.5px;
+    line-height: 1.3;
+    color: var(--text-dim);
+    background: var(--surface);
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 120ms, color 120ms, background 120ms;
+  }
+  .chip:hover { color: var(--text); border-color: var(--text-faint); }
+  .chip[aria-pressed="true"] {
+    color: var(--text);
+    border-color: currentColor;
+    background: color-mix(in oklab, currentColor 8%, var(--surface));
+  }
+
+  .btn {
+    padding: 0.28rem 0.6rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-dim);
+    background: var(--surface);
+    cursor: pointer;
+  }
+  .btn:hover { color: var(--text); border-color: var(--text-faint); }
+
+  .hatched {
+    background-image: repeating-linear-gradient(
+      135deg,
+      transparent 0 5px,
+      color-mix(in oklab, currentColor 22%, transparent) 5px 6px
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

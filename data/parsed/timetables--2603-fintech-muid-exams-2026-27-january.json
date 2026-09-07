@@ -1,0 +1,60 @@
+{
+ "kind": "exam",
+ "sourcePath": "timetables/2603_Fintech MUID_exams_2026-27_january.pdf",
+ "layoutFamily": "E-b",
+ "extractionMethod": "pdfjs",
+ "programme": "2603",
+ "exams": [
+  {
+   "rawName": "Introduction to Innovation and Entrepreneurship Management",
+   "date": "2027-01-12",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Verification and Validation",
+   "date": "2027-01-11",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Blockchain and Services for Fintech Enterprise Integration",
+   "date": "2027-01-13",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Fundamentals of Finance",
+   "date": "2027-01-18",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Requirements Engineering",
+   "date": "2027-01-19",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  }
+ ],
+ "diagnostics": []
+}

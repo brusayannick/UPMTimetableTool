@@ -1,0 +1,89 @@
+{
+ "kind": "timetable",
+ "sourcePath": "timetables/1885_DSC MUID_schedule_2026-27_1S.pdf",
+ "layoutFamily": "T2",
+ "extractionMethod": "pdfjs",
+ "programme": "1885",
+ "semester": "1S",
+ "sessions": [
+  {
+   "rawName": "I&E Basics : Introduction to Innovation and Entrepreneurship management",
+   "weekday": 2,
+   "startMin": 600,
+   "endMin": 840,
+   "room": "5005",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Big Data / Data Visualization",
+   "weekday": 1,
+   "startMin": 1080,
+   "endMin": 1260,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Data Processes",
+   "weekday": 1,
+   "startMin": 960,
+   "endMin": 1080,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Statistical Data Analysis",
+   "weekday": 2,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Intelligent Systems",
+   "weekday": 2,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "6201",
+   "elective": true,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Generative AI and Language Models",
+   "weekday": 3,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5001",
+   "elective": true,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Cloud Computing and Big Data Ecosystems Design",
+   "weekday": 3,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "rect",
+   "spanMargin": null
+  }
+ ],
+ "fillerCount": 0,
+ "diagnostics": []
+}

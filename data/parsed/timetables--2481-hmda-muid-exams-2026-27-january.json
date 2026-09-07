@@ -1,0 +1,158 @@
+{
+ "kind": "exam",
+ "sourcePath": "timetables/2481_HMDA_MUID_exams_2026-27_january.pdf",
+ "layoutFamily": "E-c",
+ "extractionMethod": "pdfjs",
+ "programme": "2481",
+ "exams": [
+  {
+   "rawName": "I&E Study",
+   "date": "2027-01-11",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Introduction to Innovation and Entrepreneurship Management",
+   "date": "2027-01-12",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "E-Health: Promoting Healthy Ageing",
+   "date": "2027-01-13",
+   "startMin": 720,
+   "endMin": 840,
+   "durationSource": "start_override_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Complex Data in Health",
+   "date": "2027-01-14",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Data Management & Knowledge in Health",
+   "date": "2027-01-19",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Devices and Biometric Aplications for e-Health",
+   "date": "2027-01-21",
+   "startMin": 600,
+   "endMin": 720,
+   "durationSource": "slot_default2h",
+   "slotLabel": "10:00–13:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Big Data / Data Visualization",
+   "date": "2027-01-11",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "date": "2027-01-12",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Machine Learning",
+   "date": "2027-01-13",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Cloud Computing and Big Data Ecosystems",
+   "date": "2027-01-14",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Data Mining and Time Series",
+   "date": "2027-01-15",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Generative AI and Language Models",
+   "date": "2027-01-15",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Statisical Data Analysis",
+   "date": "2027-01-19",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  },
+  {
+   "rawName": "Data Processes",
+   "date": "2027-01-20",
+   "startMin": 900,
+   "endMin": 1020,
+   "durationSource": "slot_default2h",
+   "slotLabel": "15:00–18:00",
+   "room": null,
+   "semester": null
+  }
+ ],
+ "diagnostics": [
+  {
+   "severity": "info",
+   "code": "CELL_SPLIT_ON_PLACEHOLDER",
+   "sourcePath": "timetables/2481_HMDA_MUID_exams_2026-27_january.pdf",
+   "subject": "Data Mining and Time Series ////// Generative AI and Language Models",
+   "detail": "split into 2 entries on the printed //// divider"
+  }
+ ]
+}

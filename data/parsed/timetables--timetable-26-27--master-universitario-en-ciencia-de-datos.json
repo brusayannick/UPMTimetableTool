@@ -1,0 +1,136 @@
+{
+ "kind": "timetable",
+ "sourcePath": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+ "layoutFamily": "T5",
+ "extractionMethod": "pdfjs",
+ "programme": "10BA",
+ "semester": "1S",
+ "sessions": [
+  {
+   "rawName": "Data Processes",
+   "weekday": 1,
+   "startMin": 960,
+   "endMin": 1080,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Data Visualization/Big Data",
+   "weekday": 1,
+   "startMin": 1080,
+   "endMin": 1260,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Statistical Data Analysis",
+   "weekday": 2,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Machine Learning",
+   "weekday": 2,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "weekday": 2,
+   "startMin": 1140,
+   "endMin": 1260,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Cloud Computing and Big Data Ecosystems",
+   "weekday": 3,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Generative AI and Language Models",
+   "weekday": 3,
+   "startMin": 1020,
+   "endMin": 1140,
+   "room": "5001",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  },
+  {
+   "rawName": "Open Data and Knowledge Graphs",
+   "weekday": 5,
+   "startMin": 900,
+   "endMin": 1020,
+   "room": "6305",
+   "elective": false,
+   "validity": null,
+   "spanSource": "explicit",
+   "spanMargin": null
+  }
+ ],
+ "fillerCount": 3,
+ "diagnostics": [
+  {
+   "severity": "info",
+   "code": "TABLE_JUNK_IGNORED",
+   "sourcePath": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+   "subject": "weekday 1",
+   "detail": "6 non-entry line(s) below the table left out"
+  },
+  {
+   "severity": "info",
+   "code": "TABLE_JUNK_IGNORED",
+   "sourcePath": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+   "subject": "weekday 2",
+   "detail": "2 non-entry line(s) below the table left out"
+  },
+  {
+   "severity": "info",
+   "code": "TABLE_JUNK_IGNORED",
+   "sourcePath": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+   "subject": "weekday 3",
+   "detail": "3 non-entry line(s) below the table left out"
+  },
+  {
+   "severity": "info",
+   "code": "TABLE_JUNK_IGNORED",
+   "sourcePath": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+   "subject": "weekday 4",
+   "detail": "1 non-entry line(s) below the table left out"
+  },
+  {
+   "severity": "info",
+   "code": "TABLE_JUNK_IGNORED",
+   "sourcePath": "timetables/Timetable 26_27 - Máster Universitario en Ciencia de Datos.pdf",
+   "subject": "weekday 5",
+   "detail": "2 non-entry line(s) below the table left out"
+  }
+ ]
+}

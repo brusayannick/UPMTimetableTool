@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.impeccable/
+data/upm.sqlite
+data/upm.sqlite-journal
+public/bundle.json
+.DS_Store
+.env
+*.log
+*.tsbuildinfo

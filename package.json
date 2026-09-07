@@ -1,0 +1,38 @@
+{
+  "name": "upm-timetable",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract.ts",
+    "parse": "node scripts/parse.ts",
+    "build:db": "node --no-warnings=ExperimentalWarning scripts/build-db.ts",
+    "build:bundle": "node --no-warnings=ExperimentalWarning scripts/export-bundle.ts",
+    "validate": "node --no-warnings=ExperimentalWarning scripts/validate.ts",
+    "supabase:seed": "node scripts/supabase-seed.ts",
+    "data": "npm run extract && npm run parse && npm run build:db && npm run validate && npm run build:bundle",
+    "data:fast": "npm run parse && npm run build:db && npm run validate && npm run build:bundle",
+    "dev": "vite",
+    "build": "npm run data && tsc --build && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --build --force"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "pdfjs-dist": "^6.2.108",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~5.9.0",
+    "vite": "^8.1.5",
+    "vitest": "^3.2.0"
+  }
+}
