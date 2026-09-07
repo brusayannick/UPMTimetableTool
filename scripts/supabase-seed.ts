@@ -87,6 +87,24 @@ const headers: Record<string, string> = {
   Prefer: 'return=minimal',
 }
 
+// Preflight: the migration must be applied before anything else.
+{
+  const res = await fetch(`${url}/rest/v1/programmes?select=code&limit=1`, { headers })
+  const body = await res.text()
+  if (res.status === 404 && body.includes('PGRST205')) {
+    console.error(
+      'Supabase tables are missing — apply supabase/migrations/0001_schema.sql first:\n' +
+        '  Supabase dashboard → SQL Editor → New query → paste the file → Run.\n' +
+        'Then re-run `npm run supabase:seed`.',
+    )
+    process.exit(1)
+  }
+  if (!res.ok) {
+    console.error(`Supabase preflight failed: ${res.status} ${body}`)
+    process.exit(1)
+  }
+}
+
 async function rest(method: string, table: string, body: unknown, query = ''): Promise<void> {
   const res = await fetch(`${url}/rest/v1/${table}${query}`, {
     method,
