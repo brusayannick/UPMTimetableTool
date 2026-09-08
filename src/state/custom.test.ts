@@ -28,7 +28,7 @@ describe('custom hash codec', () => {
     expect(decodeCustom(`${good}~bogus|1|2`).length).toBe(1)
     expect(decodeCustom('||').length).toBe(0)
     // Outside the grid, wrong step, end before start, bad weekday.
-    expect(decodeCustom('n|1|540|600|r').length).toBe(0)
+    expect(decodeCustom('n|1|480|540|r').length).toBe(0)
     expect(decodeCustom('n|1|600|615|r').length).toBe(0)
     expect(decodeCustom('n|1|700|600|r').length).toBe(0)
     expect(decodeCustom('n|9|600|660|r').length).toBe(0)

@@ -6,8 +6,8 @@ import { layoutWeek } from '../state/layout.ts'
 import type { PlacedSession } from '../data/types.ts'
 import type { SessionCollision } from '../state/collisions.ts'
 
-/** The grid runs 10:00–21:30, the union of every programme's teaching window. */
-const DAY_START = 10 * 60
+/** The grid runs 09:00–21:00, the union of every programme's teaching window. */
+const DAY_START = 9 * 60
 const DAY_END = 21 * 60
 const STEP = 30
 const ROWS = (DAY_END - DAY_START) / STEP

@@ -21,8 +21,8 @@ export type CustomLesson = {
   room: string | null
 }
 
-/** The week grid draws 10:00–21:00; custom lessons must fit inside it. */
-export const CUSTOM_DAY_START = 10 * 60
+/** The week grid draws 09:00–21:00; custom lessons must fit inside it. */
+export const CUSTOM_DAY_START = 9 * 60
 export const CUSTOM_DAY_END = 21 * 60
 export const CUSTOM_STEP = 30
 export const CUSTOM_NAME_MAX = 60
