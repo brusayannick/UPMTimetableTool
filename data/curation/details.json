@@ -3,7 +3,11 @@
     "Manual catalogue matches for courses the automatic join cannot make.",
     "Keys are bundle display names, values are CSV 'Name'/'English name' cells as",
     "printed; both sides are normalised before comparing. An entry that matches",
-    "nothing is reported by export-bundle so stale mappings cannot linger."
+    "nothing is reported by export-bundle so stale mappings cannot linger.",
+    "User-verified: A5 Machine Learning keeps the 10AZ/10BA row (same subject,",
+    "other programmes — Plans column says so), I&E Study is INNOVATION AND",
+    "ENTREPENEURSHIP STUDY, and Big Data / Data Visualization is the BIG DATA +",
+    "DATA VISUALIZATION pair."
   ],
   "extraMatches": {
     "Big Data / Data Visualization": ["BIG DATA", "DATA VISUALIZATION"],
