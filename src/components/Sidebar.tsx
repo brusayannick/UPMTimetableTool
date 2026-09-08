@@ -1,5 +1,6 @@
 import { TRASH_DROP, useDroppable } from './dnd.ts'
 import { CourseCard } from './CourseCard.tsx'
+import { CustomLessons } from './CustomLessons.tsx'
 import { progColour } from './format.ts'
 import type { Bundle } from '../data/types.ts'
 import type { Plan } from '../state/usePlan.ts'
@@ -26,6 +27,12 @@ export function Sidebar({ bundle, plan }: { bundle: Bundle; plan: Plan }) {
       className="panel flex min-h-0 flex-col overflow-hidden transition-colors"
       style={isOver ? { borderColor: 'var(--danger)' } : undefined}
     >
+      <CustomLessons
+        lessons={state.custom}
+        onAdd={plan.addCustomLesson}
+        onRemove={plan.removeCustomLesson}
+      />
+
       <div className="shrink-0 border-b px-3 pt-3 pb-2.5" style={{ borderColor: 'var(--line)' }}>
         <div className="flex flex-wrap gap-1">
           {bundle.programmes.map((p) => (

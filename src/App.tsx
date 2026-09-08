@@ -70,7 +70,10 @@ export function App({ bundle }: { bundle: Bundle }) {
     }
   }
 
-  const dragged = dragging ? bundle.courses.find((c) => c.key === dragging.key) : null
+  const dragged = dragging
+    ? (bundle.courses.find((c) => c.key === dragging.key) ??
+      plan.selected.find((c) => c.key === dragging.key))
+    : null
   const certain = plan.examClashes.filter((c) => c.severity === 'certain').length
   const possible = plan.examClashes.length - certain
   const programmesInPlan = new Set(plan.selected.flatMap((c) => c.progs))
@@ -204,6 +207,10 @@ export function App({ bundle }: { bundle: Bundle }) {
 
   function label(id: string | number): string {
     const key = String(id).split(':')[1] ?? ''
-    return bundle.courses.find((c) => c.key === key)?.name ?? 'course'
+    return (
+      bundle.courses.find((c) => c.key === key)?.name ??
+      plan.selected.find((c) => c.key === key)?.name ??
+      'course'
+    )
   }
 }
