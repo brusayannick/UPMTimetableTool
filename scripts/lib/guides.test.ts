@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { candidateGuideUrls, guideUrl, planCodePairs } from './guides.ts'
+import { candidateGuideUrls, extractGuideLanguage, guidePair, guideUrl, planCodePairs } from './guides.ts'
 
 describe('guideUrl', () => {
   it('builds the verified GA_ pattern', () => {
@@ -34,5 +34,50 @@ describe('candidateGuideUrls', () => {
       'https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AZ_103000882_EN_2026-27.pdf',
       'https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AZ_103000882_ES_2026-27.pdf',
     ])
+  })
+})
+
+describe('extractGuideLanguage', () => {
+  it('reads the EN header block', () => {
+    expect(
+      extractGuideLanguage(['LANGUAGE ASSIGNED CENTER', 'ENGLISH E.T.S. DE INGENIEROS INFORMÁTICOS']),
+    ).toBe('EN')
+  })
+
+  it('reads the ES header block', () => {
+    expect(
+      extractGuideLanguage(['IDIOMA CENTRO RESPONSABLE', 'ESPAÑOL E.T.S. DE INGENIEROS INFORMÁTICOS']),
+    ).toBe('ES')
+  })
+
+  it('ignores competency prose about languages', () => {
+    expect(
+      extractGuideLanguage(['CG03 La capacidad de usar la lengua inglesa de manera competente']),
+    ).toBeNull()
+  })
+
+  it('returns null on silence', () => {
+    expect(extractGuideLanguage(['COURSE 2', 'CREDITS 4.5 ECTS'])).toBeNull()
+  })
+
+  it('skips keyword uses without a value (titles, competency prose)', () => {
+    expect(
+      extractGuideLanguage([
+        'L.G. GENERATIVE AI AND LANGUAGE MODELS',
+        'CG03 La capacidad de usar la lengua inglesa de manera competente',
+        'LANGUAGE ASSIGNED CENTER',
+        'ENGLISH E.T.S. DE INGENIEROS INFORMÁTICOS',
+      ]),
+    ).toBe('EN')
+  })
+})
+
+describe('guidePair', () => {
+  it('recovers plan and code from a guide URL', () => {
+    expect(guidePair('https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AZ_103000882_EN_2026-27.pdf')).toEqual({
+      plan: '10AZ',
+      code: '103000882',
+    })
+    expect(guidePair('https://example.com/other.pdf')).toBeNull()
   })
 })

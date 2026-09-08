@@ -9,9 +9,10 @@ export type SessionBlockProps = {
   clashing: boolean
   dimmed: boolean
   onRemove: (key: string) => void
+  onDetails: (key: string) => void
 }
 
-export function SessionBlock({ block, index, row, clashing, dimmed, onRemove }: SessionBlockProps) {
+export function SessionBlock({ block, index, row, clashing, dimmed, onRemove, onDetails }: SessionBlockProps) {
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: sessionDragId(block.course.key, index),
     data: { type: 'session', key: block.course.key },
@@ -21,6 +22,7 @@ export function SessionBlock({ block, index, row, clashing, dimmed, onRemove }: 
   const rows = row[1] - row[0]
   const width = 100 / block.lanes
   const narrow = block.lanes > 1
+  const hasDetails = !!block.course.details && block.course.details.length > 0
 
   return (
     <div
@@ -29,6 +31,10 @@ export function SessionBlock({ block, index, row, clashing, dimmed, onRemove }: 
       {...attributes}
       role="button"
       tabIndex={0}
+      onDoubleClick={(ev) => {
+        if ((ev.target as HTMLElement).closest('button')) return
+        if (hasDetails) onDetails(block.course.key)
+      }}
       title={[
         block.course.name,
         fmtRange(block.s, block.e),

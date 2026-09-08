@@ -10,6 +10,7 @@
     "build:bundle": "node --no-warnings=ExperimentalWarning scripts/export-bundle.ts",
     "validate": "node --no-warnings=ExperimentalWarning scripts/validate.ts",
     "guides": "node scripts/fetch-guides.ts",
+    "guides:lang": "node scripts/fetch-guide-languages.ts",
     "supabase:seed": "node scripts/supabase-seed.ts",
     "data": "npm run extract && npm run parse && npm run build:db && npm run validate && npm run build:bundle",
     "data:fast": "npm run parse && npm run build:db && npm run validate && npm run build:bundle",

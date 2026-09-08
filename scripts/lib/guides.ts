@@ -60,3 +60,31 @@ export function loadVerifiedGuides(readFile: (path: string) => string, path: str
     return new Set()
   }
 }
+
+/**
+ * Teaching language from a guide's text lines (first pages suffice — the
+ * header block prints `LANGUAGE … ENGLISH` / `IDIOMA … ESPAÑOL`).
+ *
+ * Only the first line carrying the LANGUAGE/IDIOMA keyword *and* a language
+ * value in its window counts. That is the header field: the keyword also
+ * appears in course titles (`… AND LANGUAGE MODELS`) and in competency prose
+ * about "la lengua inglesa", and neither carries a value next to it.
+ * Returns null when no statement is found.
+ */
+export function extractGuideLanguage(lines: string[]): 'EN' | 'ES' | null {
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]!
+    if (!/\b(LANGUAGE|IDIOMA)\b/i.test(line)) continue
+    const window = `${line}\n${lines[i + 1] ?? ''}`
+    if (/\b(ENGLISH|INGL[ÉE]S)\b/i.test(window)) return 'EN'
+    if (/\b(ESPA[ÑN]OL|SPANISH)\b/i.test(window)) return 'ES'
+    // Keyword without a value (a title, a competency): keep looking.
+  }
+  return null
+}
+
+/** `.../GA_10AZ_103000882_EN_2026-27.pdf` → its plan/code pair. */
+export function guidePair(url: string): { plan: string; code: string } | null {
+  const m = /GA_([^_/]+)_(\d+)_(?:EN|ES)_/.exec(url)
+  return m ? { plan: m[1]!, code: m[2]! } : null
+}

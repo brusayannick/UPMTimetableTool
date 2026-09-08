@@ -28,6 +28,8 @@ export type CatalogueRow = {
   quota: string
   learningGuide: string
   observations: string
+  /** Teaching language read from the guides (`EN`, `ES`, `EN + ES`), if known. */
+  taughtIn?: string
 }
 
 export type DetailMatch = {

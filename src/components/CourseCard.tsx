@@ -27,13 +27,19 @@ export function CourseCard({ course, inPlan, clashing, semesters, onToggle, onDe
     ).values(),
   ].sort((a, b) => a.d - b.d || a.s - b.s)
   const accent = progColour(course.progs[0] ?? '')
-  const exams = [...course.exams].sort((a, b) => a.date.localeCompare(b.date))
+  const exams = [...course.exams].sort((a, b) => a.date.localeCompare(b.date) || a.s - b.s)
+  const hasDetails = !!course.details && course.details.length > 0
 
   return (
     <li
       ref={setNodeRef}
       {...listeners}
       {...attributes}
+      onDoubleClick={(ev) => {
+        // Buttons handle their own clicks; a double-click elsewhere opens details.
+        if ((ev.target as HTMLElement).closest('button')) return
+        if (hasDetails) onDetails(course.key)
+      }}
       className="group relative cursor-grab rounded-lg border px-2.5 py-2 transition-colors"
       style={{
         borderColor: clashing ? 'var(--danger)' : 'var(--line)',
@@ -60,7 +66,7 @@ export function CourseCard({ course, inPlan, clashing, semesters, onToggle, onDe
         >
           {inPlan ? '✓' : '+'}
         </button>
-        {course.details && course.details.length > 0 && (
+        {hasDetails && (
           <button
             type="button"
             aria-label={`Show details for ${course.name}`}

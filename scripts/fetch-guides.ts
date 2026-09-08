@@ -49,19 +49,23 @@ async function main(): Promise<void> {
     process.exit(1)
   }
 
-  const csv = INPUT_DIRS.map((dir) => {
-    try {
-      return readFileSync(
-        join(dir, 'Application_ETSIINF_Courses_Incoming_Student_unprotected.csv'),
-        'utf8',
-      )
-    } catch {
-      return null
+  const csvFiles = [
+    'Application_ETSIINF_Courses_Incoming_Student_unprotected.csv',
+    'Application_ETSIINF_Courses_Incoming_Student_unprotected spanish.csv',
+  ]
+  // Parsed per file and concatenated: each file's own header row stays a header.
+  const catalogue = csvFiles.flatMap((file) => {
+    for (const dir of INPUT_DIRS) {
+      try {
+        return parseCatalogue(readFileSync(join(dir, file), 'utf8'))
+      } catch {
+        // A missing edition is fine; a missing catalogue entirely is not.
+      }
     }
-  }).find((s): s is string => s !== null)
-  if (!csv) throw new Error('catalogue CSV not found under INPUT_DIRS')
+    return []
+  })
+  if (catalogue.length === 0) throw new Error('catalogue CSV not found under INPUT_DIRS')
 
-  const catalogue = parseCatalogue(csv)
   const extras = JSON.parse(readFileSync(join(CURATION_DIR, 'details.json'), 'utf8')) as {
     extraMatches?: Record<string, string[]>
   }

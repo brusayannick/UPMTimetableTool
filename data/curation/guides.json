@@ -1,9 +1,27 @@
 {
  "year": "2026-27",
  "verified": [
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000345_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000346_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000357_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000358_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000359_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000360_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000361_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000362_ES_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000363_EN_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000364_EN_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000364_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000366_EN_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000366_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000367_EN_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000367_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000368_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000369_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000370_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000720_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000750_ES_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AJ_103000815_ES_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AK_103000387_EN_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AK_103000392_EN_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10AK_103000392_ES_2026-27.pdf",
@@ -65,6 +83,213 @@
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10BA_103000897_EN_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10BA_103000899_EN_2026-27.pdf",
   "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10BA_103000899_ES_2026-27.pdf",
-  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10BA_103001058_EN_2026-27.pdf"
- ]
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10BA_103001058_EN_2026-27.pdf",
+  "https://www.upm.es/comun_gauss/publico/guias/2026-27/GA_10II_105000044_ES_2026-27.pdf"
+ ],
+ "languages": {
+  "10II|105000044": [
+   "ES"
+  ],
+  "10BA|103001058": [
+   "EN"
+  ],
+  "10BA|103000899": [
+   "ES"
+  ],
+  "10BA|103000896": [
+   "ES"
+  ],
+  "10BA|103000897": [
+   "EN"
+  ],
+  "10BA|103000894": [
+   "EN"
+  ],
+  "10BA|103000893": [
+   "ES"
+  ],
+  "10BA|103000892": [
+   "EN"
+  ],
+  "10BA|103000895": [
+   "EN"
+  ],
+  "10AZ|103001060": [
+   "EN"
+  ],
+  "10AZ|103001062": [
+   "ES"
+  ],
+  "10AZ|103001003": [
+   "EN"
+  ],
+  "10AZ|103000937": [
+   "EN"
+  ],
+  "10AZ|103000938": [
+   "EN"
+  ],
+  "10AZ|103000933": [
+   "ES"
+  ],
+  "10AZ|103001036": [
+   "EN"
+  ],
+  "10AZ|103000885": [
+   "ES"
+  ],
+  "10AZ|103000934": [
+   "EN"
+  ],
+  "10AZ|103000881": [
+   "EN"
+  ],
+  "10AZ|103000882": [
+   "EN"
+  ],
+  "10AZ|103000879": [
+   "EN"
+  ],
+  "10AZ|103000880": [
+   "EN"
+  ],
+  "10AZ|103000871": [
+   "EN"
+  ],
+  "10AZ|103000865": [
+   "EN"
+  ],
+  "10AZ|103000866": [
+   "EN"
+  ],
+  "10AZ|103000874": [
+   "EN"
+  ],
+  "10AZ|103000863": [
+   "EN"
+  ],
+  "10AZ|103000851": [
+   "EN"
+  ],
+  "10AZ|103000853": [
+   "EN"
+  ],
+  "10AZ|103000854": [
+   "EN"
+  ],
+  "10AZ|103000848": [
+   "EN"
+  ],
+  "10AZ|103000839": [
+   "EN"
+  ],
+  "10AZ|103000826": [
+   "EN"
+  ],
+  "10AZ|103000836": [
+   "EN"
+  ],
+  "10AZ|103000842": [
+   "EN"
+  ],
+  "10AZ|103000825": [
+   "EN"
+  ],
+  "10AN|103001020": [
+   "ES"
+  ],
+  "10AN|103001021": [
+   "EN"
+  ],
+  "10AN|103000924": [
+   "ES"
+  ],
+  "10AN|103000639": [
+   "EN"
+  ],
+  "10AN|103000610": [
+   "EN"
+  ],
+  "10AN|103000606": [
+   "EN"
+  ],
+  "10AM|103000871": [
+   "EN"
+  ],
+  "10AM|103000603": [
+   "EN"
+  ],
+  "10AM|103000874": [
+   "EN"
+  ],
+  "10AM|103000482": [
+   "EN"
+  ],
+  "10AK|103000393": [
+   "EN"
+  ],
+  "10AK|103000392": [
+   "EN"
+  ],
+  "10AM|103000489": [
+   "EN"
+  ],
+  "10AK|103000387": [
+   "EN"
+  ],
+  "10AJ|103000750": [
+   "ES"
+  ],
+  "10AJ|103000815": [
+   "ES"
+  ],
+  "10AJ|103000368": [
+   "ES"
+  ],
+  "10AJ|103000370": [
+   "ES"
+  ],
+  "10AJ|103000369": [
+   "ES"
+  ],
+  "10AJ|103000367": [
+   "ES"
+  ],
+  "10AJ|103000720": [
+   "ES"
+  ],
+  "10AJ|103000366": [
+   "ES"
+  ],
+  "10AJ|103000364": [
+   "EN"
+  ],
+  "10AJ|103000362": [
+   "ES"
+  ],
+  "10AJ|103000361": [
+   "ES"
+  ],
+  "10AJ|103000363": [
+   "EN"
+  ],
+  "10AJ|103000358": [
+   "ES"
+  ],
+  "10AJ|103000360": [
+   "ES"
+  ],
+  "10AJ|103000359": [
+   "ES"
+  ],
+  "10AJ|103000346": [
+   "ES"
+  ],
+  "10AJ|103000357": [
+   "ES"
+  ],
+  "10AJ|103000345": [
+   "ES"
+  ]
+ }
 }

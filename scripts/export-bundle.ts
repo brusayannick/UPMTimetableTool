@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path'
 import { loadProgrammes } from './lib/curation.ts'
 import { openDb, rows } from './lib/db.ts'
 import { loadCatalogue, loadDetailExtras, matchDetails, type CatalogueRow } from './lib/details.ts'
-import { candidateGuideUrls } from './lib/guides.ts'
+import { candidateGuideUrls, planCodePairs } from './lib/guides.ts'
 import { DEFAULT_EXAM_MINUTES } from './lib/examtime.ts'
 import { BUNDLE_PATH, DB_PATH, ROOT } from './lib/paths.ts'
 import { EXAM_WINDOW } from './lib/time.ts'
@@ -144,13 +144,24 @@ for (const c of courseRows) {
   })
 }
 
-// Incoming-student catalogue details, joined by normalised name. A course the
-// CSV does not know simply gets no `details` — the popup then shows the
-// timetable/exam data only. A stale curated mapping, however, fails the build:
-// it means a display name drifted and nobody noticed.
-const catalogue = loadCatalogue(
-  join(ROOT, 'timetables', 'Application_ETSIINF_Courses_Incoming_Student_unprotected.csv'),
-)
+// Incoming-student catalogue details, joined by normalised name. Both CSV
+// editions are matched at once: the English file carries the 10AN/10AM/10AZ/
+// 10AK/10BA rows, the Spanish one the 10AJ (MUIA) rows. A course neither file
+// knows simply gets no `details` — the popup then shows the timetable/exam
+// data only. A stale curated mapping, however, fails the build: it means a
+// display name drifted and nobody noticed.
+const CATALOGUE_FILES = [
+  'Application_ETSIINF_Courses_Incoming_Student_unprotected.csv',
+  'Application_ETSIINF_Courses_Incoming_Student_unprotected spanish.csv',
+]
+const catalogue = CATALOGUE_FILES.flatMap((file) => {
+  try {
+    return loadCatalogue(join(ROOT, 'timetables', file))
+  } catch {
+    console.error(`catalogue file missing: timetables/${file}`)
+    process.exit(1)
+  }
+})
 const { byKey: detailsByKey, report: detailsReport } = matchDetails(
   [...byKey.values()].map((c) => ({ key: c.key, name: c.name })),
   catalogue,
@@ -162,14 +173,14 @@ for (const [key, rows] of detailsByKey) {
 
 // Learning guides: each row's verified subset of its candidate URLs, one per
 // line. Rows with nothing verified keep an empty cell, as before.
-let guideVerified: Set<string>
+let guideFile: { verified?: string[]; languages?: Record<string, string[]> }
 try {
-  guideVerified = new Set(
-    (JSON.parse(readFileSync(join(ROOT, 'data', 'curation', 'guides.json'), 'utf8')) as { verified?: string[] }).verified ?? [],
-  )
+  guideFile = JSON.parse(readFileSync(join(ROOT, 'data', 'curation', 'guides.json'), 'utf8'))
 } catch {
-  guideVerified = new Set()
+  guideFile = {}
 }
+const guideVerified = new Set(guideFile.verified ?? [])
+const guideLanguages = guideFile.languages ?? {}
 let guidesFilled = 0
 for (const rows of detailsByKey.values()) {
   for (const r of rows) {
@@ -178,6 +189,11 @@ for (const rows of detailsByKey.values()) {
       r.learningGuide = urls.join('\n')
       guidesFilled++
     }
+    const langs = new Set<string>()
+    for (const { plan, code } of planCodePairs(r.plans, r.codes)) {
+      for (const lang of guideLanguages[`${plan}|${code}`] ?? []) langs.add(lang)
+    }
+    if (langs.size > 0) r.taughtIn = [...langs].sort().join(' + ')
   }
 }
 console.log(`${guidesFilled} catalogue rows with a verified learning guide`)

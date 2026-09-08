@@ -70,6 +70,8 @@ export type CourseDetails = {
   quota: string
   learningGuide: string
   observations: string
+  /** Teaching language read from the learning guides, if the guides state one. */
+  taughtIn?: string
 }
 
 export type Programme = {

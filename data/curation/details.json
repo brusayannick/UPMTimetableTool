@@ -14,6 +14,11 @@
     "Cloud Computing and Big Data Ecosystems Design": ["DESIGN OF CLOUD COMPUTING AND BIG DATA ECOSYSTEMS"],
     "I&E Study": ["INNOVATION AND ENTREPENEURSHIP STUDY"],
     "Intelligent Virtual Environments: Technologies, Architectures and Applications": ["INTELLIGENT VIRTUAL ENVIRONMENTS"],
-    "A10: Programmable Biology: DNA Computing and Biocircuit Engineering": ["PROGRAMMABLE BIOLOGY: DNA COMPUTING AMD BIOCIRCUITS ENGINEERING"]
+    "A10: Programmable Biology: DNA Computing and Biocircuit Engineering": ["PROGRAMMABLE BIOLOGY: DNA COMPUTING AMD BIOCIRCUITS ENGINEERING"],
+    "A2: Participative Decision and Negotiation": ["PARTICIPATORY DECISION MAKING AND NEGOTIATION"],
+    "A8: Intelligent Search based on Metaheuristics": ["METAHEURISTIC-BASED INTELLIGENT SEARCH"],
+    "A9: Evolutionary Computation": ["EVOLUTIONARY COMPUTING"],
+    "A14: Reasoning Models": ["MODELS OF REASONING"],
+    "A16: Autonomous Robots": ["UNMANNED ROBOTS"]
   }
 }

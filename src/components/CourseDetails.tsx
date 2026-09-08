@@ -16,6 +16,7 @@ const FIELD_LABELS: [keyof DetailsRow, string][] = [
   ['year', 'Year'],
   ['credits', 'Credits (ECTS)'],
   ['language', 'Language'],
+  ['taughtIn', 'Teaching language'],
   ['semester', 'Semester'],
   ['group', 'Group'],
   ['level', 'Level'],
@@ -25,7 +26,7 @@ const FIELD_LABELS: [keyof DetailsRow, string][] = [
 ]
 
 function DetailTable({ row, index }: { row: DetailsRow; index: number }) {
-  const fields = FIELD_LABELS.filter(([k]) => row[k].trim() !== '')
+  const fields = FIELD_LABELS.filter(([k]) => (row[k] ?? '').trim() !== '')
   return (
     <div>
       {index > 0 && (

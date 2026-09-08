@@ -15,6 +15,7 @@ import {
   type DragData,
 } from './components/dnd.ts'
 import { ExamPanel } from './components/ExamPanel.tsx'
+import { CourseDetails } from './components/CourseDetails.tsx'
 import { Sidebar } from './components/Sidebar.tsx'
 import { WeekGrid } from './components/WeekGrid.tsx'
 import { fmtDate, setPalette } from './components/format.ts'
@@ -27,6 +28,9 @@ export function App({ bundle }: { bundle: Bundle }) {
   const [dragging, setDragging] = useState<DragData | null>(null)
   const [overGrid, setOverGrid] = useState(false)
   const [mobileTab, setMobileTab] = useState<'courses' | 'week' | 'exams'>('week')
+  // Course detail popup, opened from the catalogue or the week grid.
+  const [detailsKey, setDetailsKey] = useState<string | null>(null)
+  const detailsCourse = detailsKey ? (bundle.courses.find((c) => c.key === detailsKey) ?? null) : null
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 4 } }),
@@ -170,9 +174,9 @@ export function App({ bundle }: { bundle: Bundle }) {
           ))}
         </nav>
 
-        <main className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)] gap-2 lg:grid-cols-[19rem_minmax(0,1fr)_21rem] lg:gap-3">
+        <main className="grid min-h-0 flex-1 grid-rows-[minmax(0,1fr)] gap-2 lg:grid-cols-[22rem_minmax(0,1fr)_21rem] lg:gap-3">
           <div className={`${pane('courses')} min-h-0 flex-col`}>
-            <Sidebar bundle={bundle} plan={plan} />
+            <Sidebar bundle={bundle} plan={plan} onDetails={setDetailsKey} />
           </div>
           <div className={`${pane('week')} min-h-0 flex-col`}>
             <WeekGrid
@@ -180,6 +184,7 @@ export function App({ bundle }: { bundle: Bundle }) {
               collisions={plan.sessionClashes}
               preview={preview}
               onRemove={plan.removeCourse}
+              onDetails={setDetailsKey}
             />
           </div>
           <div className={`${pane('exams')} min-h-0 flex-col`}>
@@ -187,6 +192,14 @@ export function App({ bundle }: { bundle: Bundle }) {
           </div>
         </main>
       </div>
+
+      {detailsCourse && (
+        <CourseDetails
+          course={detailsCourse}
+          semesters={plan.state.semesters}
+          onClose={() => setDetailsKey(null)}
+        />
+      )}
 
       <DragOverlay dropAnimation={null}>
         {dragged && (

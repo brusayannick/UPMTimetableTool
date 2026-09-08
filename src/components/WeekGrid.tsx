@@ -24,9 +24,10 @@ export type WeekGridProps = {
   collisions: SessionCollision[]
   preview: PlacedSession[]
   onRemove: (key: string) => void
+  onDetails: (key: string) => void
 }
 
-export function WeekGrid({ placed, collisions, preview, onRemove }: WeekGridProps) {
+export function WeekGrid({ placed, collisions, preview, onRemove, onDetails }: WeekGridProps) {
   const { setNodeRef, isOver } = useDroppable({ id: GRID_DROP })
 
   const blocks = layoutWeek(placed)
@@ -132,6 +133,7 @@ export function WeekGrid({ placed, collisions, preview, onRemove }: WeekGridProp
               clashing={clashKeys.has(block.id)}
               dimmed={dimOthers}
               onRemove={onRemove}
+              onDetails={onDetails}
             />
           ))}
         </div>
