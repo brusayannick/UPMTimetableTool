@@ -22,6 +22,17 @@ export function creditsOfDetails(rows: { credits: string }[] | undefined): numbe
   return any ? total : null
 }
 
+/**
+ * A learning-guide URL (`…/GA_10BA_103000892_EN_2026-27.pdf`) as a readable
+ * label: the guide language plus the plan it belongs to. Null when the URL is
+ * not a guide link, so callers can fall back to the raw URL.
+ */
+export function guideLinkLabel(url: string): { language: string; plan: string } | null {
+  const m = /GA_([^_/]+)_\d+_(EN|ES)_/.exec(url)
+  if (!m) return null
+  return { language: m[2] === 'EN' ? 'English' : 'Spanish', plan: m[1]! }
+}
+
 export const fmtRange = (s: number, e: number, assumed = false): string =>
   `${fmtMin(s)}–${assumed ? '~' : ''}${fmtMin(e)}`
 

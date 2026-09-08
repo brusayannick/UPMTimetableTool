@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { fmtDate, fmtRange, progColour, WEEKDAYS } from './format.ts'
+import { fmtDate, fmtRange, guideLinkLabel, progColour, WEEKDAYS } from './format.ts'
 import type { Course, CourseDetails as DetailsRow, Semester } from '../data/types.ts'
 
 export type CourseDetailsProps = {
@@ -52,29 +52,32 @@ function DetailTable({ row, index }: { row: DetailsRow; index: number }) {
   )
 }
 
-/** Render each URL on its own line as a link; anything else stays plain text. */
+/** Render each URL as a language-labelled link; anything else stays plain text. */
 function Linkified({ value }: { value: string }) {
   const parts = value.split(/\s+/).filter(Boolean)
   if (parts.length === 0) return null
   return (
     <>
-      {parts.map((part, i) => (
-        <span key={i} className="block">
-          {/^https?:\/\//.test(part) ? (
-            <a
-              href={part}
-              target="_blank"
-              rel="noreferrer"
-              className="underline"
-              style={{ color: 'var(--text)' }}
-            >
-              {part}
-            </a>
-          ) : (
-            part
-          )}
-        </span>
-      ))}
+      {parts.map((part, i) => {
+        const guide = /^https?:\/\//.test(part) ? guideLinkLabel(part) : null
+        return (
+          <span key={i} className="block">
+            {/^https?:\/\//.test(part) ? (
+              <a
+                href={part}
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+                style={{ color: 'var(--text)' }}
+              >
+                {guide ? `${guide.language} (${guide.plan})` : part}
+              </a>
+            ) : (
+              part
+            )}
+          </span>
+        )
+      })}
     </>
   )
 }
