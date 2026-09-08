@@ -3,6 +3,25 @@ import type { Programme, Weekday } from '../data/types.ts'
 export const fmtMin = (min: number): string =>
   `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`
 
+/**
+ * Sum ECTS from catalogue detail rows (`credits` prints with a comma decimal,
+ * e.g. `4,5`). Null when no row states usable credits, so callers can say the
+ * total is partial rather than silently short.
+ */
+export function creditsOfDetails(rows: { credits: string }[] | undefined): number | null {
+  if (!rows || rows.length === 0) return null
+  let total = 0
+  let any = false
+  for (const r of rows) {
+    const v = parseFloat(r.credits.replace(',', '.'))
+    if (!Number.isNaN(v)) {
+      total += v
+      any = true
+    }
+  }
+  return any ? total : null
+}
+
 export const fmtRange = (s: number, e: number, assumed = false): string =>
   `${fmtMin(s)}–${assumed ? '~' : ''}${fmtMin(e)}`
 

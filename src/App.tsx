@@ -18,7 +18,7 @@ import { ExamPanel } from './components/ExamPanel.tsx'
 import { CourseDetails } from './components/CourseDetails.tsx'
 import { Sidebar } from './components/Sidebar.tsx'
 import { WeekGrid } from './components/WeekGrid.tsx'
-import { fmtDate, setPalette } from './components/format.ts'
+import { creditsOfDetails, fmtDate, setPalette } from './components/format.ts'
 import { usePlan } from './state/usePlan.ts'
 import type { Bundle, PlacedSession } from './data/types.ts'
 
@@ -78,6 +78,20 @@ export function App({ bundle }: { bundle: Bundle }) {
     ? (bundle.courses.find((c) => c.key === dragging.key) ??
       plan.selected.find((c) => c.key === dragging.key))
     : null
+
+  // Catalogue ECTS over the selected courses. Custom lessons carry no credits
+  // and never count as missing.
+  const ects = useMemo(() => {
+    let total = 0
+    let missing = 0
+    for (const c of plan.selected) {
+      if (c.key.startsWith('custom:')) continue
+      const v = creditsOfDetails(c.details)
+      if (v === null) missing++
+      else total += v
+    }
+    return { total, missing }
+  }, [plan.selected])
   const certain = plan.examClashes.filter((c) => c.severity === 'certain').length
   const possible = plan.examClashes.length - certain
   const programmesInPlan = new Set(plan.selected.flatMap((c) => c.progs))
@@ -122,6 +136,18 @@ export function App({ bundle }: { bundle: Bundle }) {
             <span style={{ color: 'var(--text-dim)' }}>
               {plan.selected.length} {plan.selected.length === 1 ? 'course' : 'courses'}
             </span>
+            {plan.selected.length > 0 && (
+              <span
+                style={{ color: 'var(--text-dim)' }}
+                title={
+                  ects.missing > 0
+                    ? `Sum of catalogue ECTS for the selected courses. Excludes ${ects.missing} ${ects.missing === 1 ? 'course' : 'courses'} without catalogue credit data.`
+                    : 'Sum of catalogue ECTS for the selected courses.'
+                }
+              >
+                Σ {ects.total} ECTS
+              </span>
+            )}
             <span style={{ color: certain > 0 ? 'var(--danger)' : 'var(--text-dim)' }}>
               {certain} exam {certain === 1 ? 'clash' : 'clashes'}
             </span>
