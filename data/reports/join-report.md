@@ -100,6 +100,15 @@ _none_
 
 _none_
 
+## Curated time overrides (1)
+
+These exams do **not** show what the PDFs print. Each row states the printed
+time it replaced and why.
+
+| course | printed | recorded | why |
+|---|---|---|---|
+| E-Health: Promoting Active and Healthy Ageing | 2027-01-13 12:00–14:00 (slot_default2h) | 2027-01-13 10:00–12:00 (curated) | Manual correction at the user's request. Both printed calendars say 12:00 on 13 Jan (HCID via its 12:00-15:00 slot row, HMDA via a printed 12:00 h. start override) — this override replaces both, in every programme, so the shared exam stays consistent. |
+
 ## Assumptions
 
 Exams whose end time the source does not print are given a **2-hour** duration

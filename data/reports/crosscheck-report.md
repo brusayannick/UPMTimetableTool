@@ -63,7 +63,7 @@ them has to give the same answer.
 | Complex Data in Health | 1885/E-b · 2481/E-c | 2027-01-14 | 10:00 | ✓ |
 | Data Mining and Time Series | 1885/E-b · 2481/E-c | 2027-01-15 | 15:00 | ✓ |
 | Data Processes | 1885/E-b · 2481/E-c | 2027-01-20 | 15:00 | ✓ |
-| E-Health: Promoting Active and Healthy Ageing | 2235/E-b · 2481/E-c | 2027-01-13 | 12:00 | ✓ |
+| E-Health: Promoting Active and Healthy Ageing | 2235/E-b · 2481/E-c | 2027-01-13 | 10:00 | ✓ |
 | Generative AI and Language Models | 1885/E-b · 2481/E-c | 2027-01-15 | 15:00 | ✓ |
 | I&E Basics : Introduction to Innovation and Entrepreneurship management | 1885/E-b · 2235/E-b · 2603/E-b | 2027-01-12 | 10:00 | ✓ |
 | I&E Study | 1885/E-b · 2235/E-b · 2481/E-c | 2027-01-11 | 10:00 | ✓ |
@@ -78,11 +78,11 @@ Layout families contributing exam data: E-b, E-c.
 
 | duration source | exams |
 |---|---|
-| `slot_default2h` | 40 |
+| `slot_default2h` | 39 |
 | `explicit_range` | 4 |
-| `start_override_default2h` | 1 |
+| `curated` | 2 |
 
-41 of 45 exams have an end time the source does not print; they are given a **2-hour** duration and flagged so the UI shows them as an assumption. An exam collision that exists only because of an assumed tail is shown as *possible* rather than *certain*.
+39 of 45 exams have an end time the source does not print; they are given a **2-hour** duration and flagged so the UI shows them as an assumption. An exam collision that exists only because of an assumed tail is shown as *possible* rather than *certain*.
 
 34 of 88 sessions have a start/end derived from text position rather than from a printed cell rectangle. Check D above is what keeps that honest.
 

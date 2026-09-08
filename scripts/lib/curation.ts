@@ -60,6 +60,13 @@ export type Fixups = {
   equivalences: [string, string][]
   roomPrecedence: { programme: string; semester?: Semester; prefer: 'vision' | 'pdfjs'; why: string }[]
   notes: { code: string; text: string }[]
+  /**
+   * Manual exam-time corrections. Matched on the canonical course key across
+   * all programmes (a shared exam stays consistent), applied over whatever the
+   * PDFs print, and recorded in the join report with the printed time it
+   * replaced. A last resort for when the sources are wrong, never for taste.
+   */
+  examOverrides: { name: string; date: string; start: string; end: string; why: string }[]
 }
 
 export type Aliases = {

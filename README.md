@@ -177,7 +177,8 @@ MUIA grid cells) stand on the frozen counts and the shared-exam agreement below.
 one programme and so appear in several exam calendars, each printed in a different
 layout and read by a different code path. All eleven agree on date and start time,
 e.g. Cloud Computing and Big Data Ecosystems Design (DSC · HMDA, 14 Jan 15:00) and
-E-Health: Promoting Active and Healthy Ageing (HCID · HMDA, 13 Jan 12:00).
+E-Health: Promoting Active and Healthy Ageing (HCID · HMDA, 13 Jan 10:00 — a curated
+override; both PDFs print 12:00, see `examOverrides` in `data/curation/fixups.json`).
 
 No warnings remain.
 
