@@ -12,11 +12,12 @@
  * anything transcribed from an image-only PDF.
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { loadProgrammes } from './lib/curation.ts'
 import { openDb, rows } from './lib/db.ts'
 import { loadCatalogue, loadDetailExtras, matchDetails, type CatalogueRow } from './lib/details.ts'
+import { candidateGuideUrls } from './lib/guides.ts'
 import { DEFAULT_EXAM_MINUTES } from './lib/examtime.ts'
 import { BUNDLE_PATH, DB_PATH, ROOT } from './lib/paths.ts'
 import { EXAM_WINDOW } from './lib/time.ts'
@@ -158,6 +159,28 @@ const { byKey: detailsByKey, report: detailsReport } = matchDetails(
 for (const [key, rows] of detailsByKey) {
   byKey.get(key)!.details = rows
 }
+
+// Learning guides: each row's verified subset of its candidate URLs, one per
+// line. Rows with nothing verified keep an empty cell, as before.
+let guideVerified: Set<string>
+try {
+  guideVerified = new Set(
+    (JSON.parse(readFileSync(join(ROOT, 'data', 'curation', 'guides.json'), 'utf8')) as { verified?: string[] }).verified ?? [],
+  )
+} catch {
+  guideVerified = new Set()
+}
+let guidesFilled = 0
+for (const rows of detailsByKey.values()) {
+  for (const r of rows) {
+    const urls = candidateGuideUrls(r.plans, r.codes).filter((u) => guideVerified.has(u))
+    if (urls.length > 0) {
+      r.learningGuide = urls.join('\n')
+      guidesFilled++
+    }
+  }
+}
+console.log(`${guidesFilled} catalogue rows with a verified learning guide`)
 console.log(
   `${detailsByKey.size}/${byKey.size} courses with catalogue details` +
     (detailsReport.unmatchedCourses.length > 0

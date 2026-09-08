@@ -42,24 +42,39 @@ function DetailTable({ row, index }: { row: DetailsRow; index: number }) {
           >
             <dt style={{ color: 'var(--text-faint)' }}>{label}</dt>
             <dd className="min-w-0 break-words whitespace-pre-line">
-              {key === 'learningGuide' && /^https?:\/\//.test(row[key].trim()) ? (
-                <a
-                  href={row[key].trim()}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline"
-                  style={{ color: 'var(--text)' }}
-                >
-                  {row[key].trim()}
-                </a>
-              ) : (
-                row[key]
-              )}
+              {key === 'learningGuide' ? <Linkified value={row[key]} /> : row[key]}
             </dd>
           </div>
         ))}
       </dl>
     </div>
+  )
+}
+
+/** Render each URL on its own line as a link; anything else stays plain text. */
+function Linkified({ value }: { value: string }) {
+  const parts = value.split(/\s+/).filter(Boolean)
+  if (parts.length === 0) return null
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i} className="block">
+          {/^https?:\/\//.test(part) ? (
+            <a
+              href={part}
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+              style={{ color: 'var(--text)' }}
+            >
+              {part}
+            </a>
+          ) : (
+            part
+          )}
+        </span>
+      ))}
+    </>
   )
 }
 
