@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import type { Bundle, Course, PlacedExam, PlacedSession, Semester } from '../data/types.ts'
+import type { Bundle, Course, PlacedExam, PlacedSession, Semester, Weekday } from '../data/types.ts'
 import { blocksPlan, collidingKeys, examCollisions, sessionCollisions } from './collisions.ts'
 import { customKey, decodeCustom, encodeCustom, type CustomLesson } from './custom.ts'
 
@@ -14,6 +14,8 @@ export type PlanState = {
   search: string
   /** Sidebar shows only courses that would not clash with the current plan. */
   nonBlockingOnly: boolean
+  /** Sidebar shows only courses taught on these weekdays. Empty means all days. */
+  days: Weekday[]
   /** User-defined lessons. Always part of the plan; definitions live here. */
   custom: CustomLesson[]
 }
@@ -25,6 +27,7 @@ const EMPTY: PlanState = {
   semesters: ['1S', '3S'],
   search: '',
   nonBlockingOnly: false,
+  days: [],
   custom: [],
 }
 
@@ -208,11 +211,17 @@ export function usePlan(bundle: Bundle) {
     return bundle.courses.filter((c) => {
       if (state.programmes.length > 0 && !c.progs.some((p) => state.programmes.includes(p))) return false
       if (!c.sessions.some((s) => state.semesters.includes(s.sem)) && c.sessions.length > 0) return false
+      if (
+        state.days.length > 0 &&
+        !c.sessions.some((s) => state.days.includes(s.d) && state.semesters.includes(s.sem))
+      ) {
+        return false
+      }
       if (q && !c.name.toLowerCase().includes(q)) return false
       if (state.nonBlockingOnly && blockingKeys.has(c.key)) return false
       return true
     })
-  }, [bundle.courses, state.programmes, state.semesters, state.search, state.nonBlockingOnly, blockingKeys])
+  }, [bundle.courses, state.programmes, state.semesters, state.search, state.days, state.nonBlockingOnly, blockingKeys])
 
   const assumedExams = useMemo(
     () => placedExams.filter((p) => p.exam.assumed).length,

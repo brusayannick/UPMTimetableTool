@@ -1,7 +1,7 @@
 import { TRASH_DROP, useDroppable } from './dnd.ts'
 import { CourseCard } from './CourseCard.tsx'
 import { CustomLessons } from './CustomLessons.tsx'
-import { progColour } from './format.ts'
+import { progColour, WEEKDAYS } from './format.ts'
 import type { Bundle } from '../data/types.ts'
 import type { Plan } from '../state/usePlan.ts'
 
@@ -92,6 +92,32 @@ export function Sidebar({ bundle, plan }: { bundle: Bundle; plan: Plan }) {
             className="ml-auto w-full min-w-0 rounded-md border px-2 py-1 text-[12px] outline-none"
             style={{ borderColor: 'var(--line-strong)', background: 'var(--surface)', color: 'var(--text)' }}
           />
+        </div>
+
+        <div className="mt-2 flex flex-wrap items-center gap-1" role="group" aria-label="Filter by teaching day">
+          {WEEKDAYS.map((w) => (
+            <button
+              key={w.n}
+              type="button"
+              className="chip"
+              aria-pressed={state.days.includes(w.n)}
+              title={`Only courses taught on ${w.label}`}
+              onClick={() =>
+                patch({
+                  days: state.days.includes(w.n)
+                    ? state.days.filter((d) => d !== w.n)
+                    : [...state.days, w.n],
+                })
+              }
+            >
+              {w.short}
+            </button>
+          ))}
+          {state.days.length > 0 && (
+            <button type="button" className="chip" onClick={() => patch({ days: [] })}>
+              all
+            </button>
+          )}
         </div>
       </div>
 
