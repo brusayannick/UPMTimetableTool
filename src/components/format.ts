@@ -5,21 +5,33 @@ export const fmtMin = (min: number): string =>
 
 /**
  * Sum ECTS from catalogue detail rows (`credits` prints with a comma decimal,
- * e.g. `4,5`). Null when no row states usable credits, so callers can say the
- * total is partial rather than silently short.
+ * e.g. `4,5`). Rows are grouped by catalogue identity (Spanish + English
+ * name): one offering counts once even when several plans list it, and
+ * distinct offerings (e.g. the two 3-credit halves of Big Data) add up.
+ * Returns null when nothing usable is stated — or when one offering states
+ * conflicting credits, which the build refuses to guess at — so callers can
+ * say the total is partial rather than silently wrong.
  */
-export function creditsOfDetails(rows: { credits: string }[] | undefined): number | null {
+export function creditsOfDetails(
+  rows: { credits: string; name: string; englishName: string }[] | undefined,
+): number | null {
   if (!rows || rows.length === 0) return null
-  let total = 0
-  let any = false
+  const byOffering = new Map<string, Set<number>>()
   for (const r of rows) {
     const v = parseFloat(r.credits.replace(',', '.'))
-    if (!Number.isNaN(v)) {
-      total += v
-      any = true
-    }
+    if (Number.isNaN(v)) continue
+    const key = `${r.name}|${r.englishName}`.toLowerCase().replace(/\s+/g, ' ').trim()
+    const set = byOffering.get(key)
+    if (set) set.add(v)
+    else byOffering.set(key, new Set([v]))
   }
-  return any ? total : null
+  if (byOffering.size === 0) return null
+  let total = 0
+  for (const values of byOffering.values()) {
+    if (values.size !== 1) return null
+    total += [...values][0]!
+  }
+  return total
 }
 
 /**

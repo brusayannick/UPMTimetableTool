@@ -77,8 +77,7 @@ describe('matchDetails', () => {
     expect(report.unusedExtras).toEqual(['Stale Mapping → NOT IN THE CSV'])
   })
 
-  it('matches the real A10 row despite its AMD/BIOCIRCUITS quirks', () => {
-    const rows = parseCatalogue(
+  it('matches the real A10 row despite its AMD/BIOCIRCUITS quirks', () => {    const rows = parseCatalogue(
       'Plans;Codes;Name;English name;Year;Credits;Language;Semester;Group;Level;Available undergrad;Final level;Plan;Code;Quota;Learning guide;Observations\r\n' +
         '10AJ;103000363;BIOLOGÍA PROGRAMABLE: COMPUTACIÓN CON ADN E INGENIERÍA DE BIOCIRCUITOS;PROGRAMMABLE BIOLOGY: DNA COMPUTING AMD BIOCIRCUITS ENGINEERING;1;5;Inglés;1S;;Master;;Master;#REF!;#REF!;4;#REF!;;;;',
     )
@@ -89,5 +88,50 @@ describe('matchDetails', () => {
     )
     expect(byKey.size).toBe(1)
     expect(report.unusedExtras).toEqual([])
+  })
+})
+
+describe('catalogue scope and offering conflicts', () => {
+  const header =
+    'Plans;Codes;Name;English name;Year;Credits;Language;Semester;Group;Level;Available undergrad;Final level;Plan;Code;Quota;Learning guide;Observations'
+  const csv = [
+    header,
+    '10AZ, 10BA;103000826, 103000897;MACHINE LEARNING;MACHINE LEARNING;1;4,5;Inglés;1S;;Master;;;;;#REF!;',
+    '10AJ;103000360;APRENDIZAJE AUTOMATICO;MACHINE LEARNING;1;5;Inglés;1S;;Master;;;;;#REF!;',
+    '10II;105000044;SISTEMAS INTELIGENTES;INTELLIGENT SYSTEMS;2;6;EF;2S;;Bachelor;;;;;#REF!;',
+    '10AN, 10AZ;103000606, 103000851;INTELLIGENT SYSTEMS;INTELLIGENT SYSTEMS;1;4,5;Inglés;1S;;Master;;;;;#REF!;',
+  ].join('\r\n')
+  const rows = parseCatalogue(csv)
+
+  it('ignores bachelor rows even when the name matches', () => {
+    const { byKey } = matchDetails(
+      [{ key: 'intelligent-systems', name: 'Intelligent Systems' }],
+      rows,
+      {},
+      {},
+    )
+    expect(byKey.get('intelligent-systems')?.map((r) => r.codes)).toEqual(['103000606, 103000851'])
+  })
+
+  it('resolves same-name credit conflicts by preferred plan', () => {
+    const { byKey, report } = matchDetails(
+      [{ key: 'a5-machine-learning', name: 'A5: Machine Learning' }],
+      rows,
+      {},
+      { 'A5: Machine Learning': ['10AJ'] },
+    )
+    expect(byKey.get('a5-machine-learning')?.map((r) => r.codes)).toEqual(['103000360'])
+    expect(report.ambiguousCourses).toEqual([])
+  })
+
+  it('reports conflicts with no preferred plan instead of summing', () => {
+    const { byKey, report } = matchDetails(
+      [{ key: 'a5-machine-learning', name: 'A5: Machine Learning' }],
+      rows,
+      {},
+      {},
+    )
+    expect(byKey.get('a5-machine-learning')?.length).toBe(2)
+    expect(report.ambiguousCourses.length).toBe(1)
   })
 })

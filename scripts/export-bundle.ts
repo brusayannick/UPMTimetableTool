@@ -16,7 +16,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { loadProgrammes } from './lib/curation.ts'
 import { openDb, rows } from './lib/db.ts'
-import { loadCatalogue, loadDetailExtras, matchDetails, type CatalogueRow } from './lib/details.ts'
+import { loadCatalogue, loadDetailExtras, loadPreferPlans, matchDetails, type CatalogueRow } from './lib/details.ts'
 import { candidateGuideUrls, planCodePairs } from './lib/guides.ts'
 import { DEFAULT_EXAM_MINUTES } from './lib/examtime.ts'
 import { BUNDLE_PATH, DB_PATH, ROOT } from './lib/paths.ts'
@@ -166,6 +166,7 @@ const { byKey: detailsByKey, report: detailsReport } = matchDetails(
   [...byKey.values()].map((c) => ({ key: c.key, name: c.name })),
   catalogue,
   loadDetailExtras(),
+  loadPreferPlans(),
 )
 for (const [key, rows] of detailsByKey) {
   byKey.get(key)!.details = rows
@@ -205,6 +206,10 @@ console.log(
 )
 if (detailsReport.unusedExtras.length > 0) {
   console.error(`stale details.json mappings:\n  ${detailsReport.unusedExtras.join('\n  ')}`)
+  process.exit(1)
+}
+if (detailsReport.ambiguousCourses.length > 0) {
+  console.error(`same-name catalogue rows with conflicting credits:\n  ${detailsReport.ambiguousCourses.join('\n  ')}\ndeclare the offering in preferPlans`)
   process.exit(1)
 }
 

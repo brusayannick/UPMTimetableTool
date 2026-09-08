@@ -39,6 +39,8 @@ export type DetailMatch = {
   unusedExtras: string[]
   /** Courses matching more than one row (e.g. taught in two plans). */
   multiRowCourses: string[]
+  /** Same-name rows with conflicting credits and no preferred plan. */
+  ambiguousCourses: string[]
 }
 
 const keyOf = (s: string): string => normalise(s).key
@@ -126,17 +128,38 @@ export function loadDetailExtras(): Record<string, string[]> {
   return (JSON.parse(readFileSync(CURATION_DIR + '/details.json', 'utf8')) as { extraMatches: Record<string, string[]> }).extraMatches ?? {}
 }
 
+export function loadPreferPlans(): Record<string, string[]> {
+  return (JSON.parse(readFileSync(CURATION_DIR + '/details.json', 'utf8')) as { preferPlans: Record<string, string[]> }).preferPlans ?? {}
+}
+
+/** Credits compared by value: `4,5` and `4.5` are the same offering. */
+const creditValue = (credits: string): number | null => {
+  const v = parseFloat(credits.replace(',', '.'))
+  return Number.isNaN(v) ? null : v
+}
+
 /**
  * Match bundle courses (by canonical key + display name) to catalogue rows.
+ *
+ * Two honesty rules, both enforced so the ECTS total can trust the rows:
+ *  - bachelor rows never match: this is a master timetable, and a shared name
+ *    (e.g. INTELLIGENT SYSTEMS in 10II) must not leak in;
+ *  - one catalogue name, one credit value: rows sharing a normalised name but
+ *    stating different credits are different offerings of one name (MUIA's A5
+ *    vs the DSC/HMDA Machine Learning). `preferPlans` picks the offering by
+ *    plan code; anything left conflicting is reported, not summed.
+ *
  * Returns the details per course key plus a report of everything unplaced.
  */
 export function matchDetails(
   courses: { key: string; name: string }[],
   rows: CatalogueRow[],
   extras: Record<string, string[]>,
+  preferPlans: Record<string, string[]> = {},
 ): { byKey: Map<string, CatalogueRow[]>; report: DetailMatch } {
+  const masters = rows.filter((r) => r.level.toLowerCase() === 'master')
   const byNameKey = new Map<string, CatalogueRow[]>()
-  for (const r of rows) {
+  for (const r of masters) {
     for (const cell of [r.name, r.englishName]) {
       if (!cell) continue
       const k = keyOf(cell)
@@ -151,16 +174,28 @@ export function matchDetails(
     extraKeys.set(keyOf(display), cells.map(keyOf))
   }
 
+  const preferKeys = new Map<string, Set<string>>()
+  for (const [display, plans] of Object.entries(preferPlans)) {
+    preferKeys.set(keyOf(display), new Set(plans))
+  }
+
+  const rowId = (r: CatalogueRow): string => `${r.plans}|${r.codes}|${r.name}|${r.englishName}`
+  // Offerings of one catalogue course share the English identity even when the
+  // Spanish names differ — that shared key is what a credit conflict hangs on.
+  const rowNameKey = (r: CatalogueRow): string => keyOf(r.englishName || r.name)
+  const rowPlans = (r: CatalogueRow): string[] => r.plans.split(',').map((s) => s.trim()).filter(Boolean)
+
   const byKey = new Map<string, CatalogueRow[]>()
   const unmatchedCourses: string[] = []
   const multiRowCourses: string[] = []
+  const ambiguousCourses: string[] = []
   const usedExtras = new Set<string>()
 
   for (const c of courses) {
     const seen = new Map<string, CatalogueRow>()
     const take = (k: string): void => {
       for (const r of byNameKey.get(k) ?? []) {
-        const id = `${r.plans}|${r.codes}|${r.name}|${r.englishName}`
+        const id = rowId(r)
         if (!seen.has(id)) seen.set(id, r)
       }
     }
@@ -170,7 +205,34 @@ export function matchDetails(
       if ((byNameKey.get(k) ?? []).length > 0) usedExtras.add(`${c.key}→${k}`)
       take(k)
     }
-    const matched = [...seen.values()]
+    let matched = [...seen.values()]
+
+    // Same catalogue name, conflicting credits: keep only the preferred
+    // offering, or report the course as ambiguous.
+    const preferred = preferKeys.get(c.key)
+    const groups = new Map<string, CatalogueRow[]>()
+    for (const r of matched) {
+      const gk = rowNameKey(r)
+      const g = groups.get(gk)
+      if (g) g.push(r)
+      else groups.set(gk, [r])
+    }
+    for (const [gk, group] of groups) {
+      const values = new Set(group.map((r) => creditValue(r.credits)).filter((v) => v !== null))
+      if (values.size > 1 && preferred) {
+        const kept = group.filter((r) => rowPlans(r).some((p) => preferred.has(p)))
+        if (kept.length > 0 && new Set(kept.map((r) => creditValue(r.credits))).size === 1) {
+          matched = matched.filter((r) => rowNameKey(r) !== gk || kept.includes(r))
+          continue
+        }
+      }
+      if (values.size > 1) {
+        ambiguousCourses.push(
+          `${c.name} (${group.map((r) => `${r.plans} ${r.credits}cr`).join(' vs ')})`,
+        )
+      }
+    }
+
     if (matched.length === 0) {
       unmatchedCourses.push(c.name)
     } else {
@@ -188,5 +250,5 @@ export function matchDetails(
     }
   }
 
-  return { byKey, report: { unmatchedCourses, unusedExtras, multiRowCourses } }
+  return { byKey, report: { unmatchedCourses, unusedExtras, multiRowCourses, ambiguousCourses } }
 }

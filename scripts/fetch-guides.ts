@@ -14,7 +14,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { matchDetails, parseCatalogue } from './lib/details.ts'
+import { loadPreferPlans, matchDetails, parseCatalogue } from './lib/details.ts'
 import { candidateGuideUrls, GUIDE_YEAR } from './lib/guides.ts'
 import { CURATION_DIR, INPUT_DIRS, ROOT } from './lib/paths.ts'
 
@@ -73,6 +73,7 @@ async function main(): Promise<void> {
     bundle.courses.map((c) => ({ key: c.key, name: c.name })),
     catalogue,
     extras.extraMatches ?? {},
+    loadPreferPlans(),
   )
 
   const urls = new Set<string>()

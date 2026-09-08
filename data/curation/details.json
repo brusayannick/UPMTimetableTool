@@ -4,10 +4,11 @@
     "Keys are bundle display names, values are CSV 'Name'/'English name' cells as",
     "printed; both sides are normalised before comparing. An entry that matches",
     "nothing is reported by export-bundle so stale mappings cannot linger.",
-    "User-verified: A5 Machine Learning keeps the 10AZ/10BA row (same subject,",
-    "other programmes — Plans column says so), I&E Study is INNOVATION AND",
-    "ENTREPENEURSHIP STUDY, and Big Data / Data Visualization is the BIG DATA +",
-    "DATA VISUALIZATION pair."
+    "User-verified: I&E Study is INNOVATION AND ENTREPENEURSHIP STUDY, and",
+    "Big Data / Data Visualization is the BIG DATA + DATA VISUALIZATION pair",
+    "(3 + 3 ECTS). preferPlans disambiguates same-name rows with conflicting",
+    "credits, which must never be summed: MUIA's A5 is the 10AJ offering (5),",
+    "the shared Machine Learning is the 10AZ/10BA one (4,5)."
   ],
   "extraMatches": {
     "Big Data / Data Visualization": ["BIG DATA", "DATA VISUALIZATION"],
@@ -20,5 +21,9 @@
     "A9: Evolutionary Computation": ["EVOLUTIONARY COMPUTING"],
     "A14: Reasoning Models": ["MODELS OF REASONING"],
     "A16: Autonomous Robots": ["UNMANNED ROBOTS"]
+  },
+  "preferPlans": {
+    "A5: Machine Learning": ["10AJ"],
+    "Machine Learning": ["10AZ", "10BA"]
   }
 }
