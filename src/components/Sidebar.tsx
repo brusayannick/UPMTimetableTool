@@ -67,6 +67,15 @@ export function Sidebar({ bundle, plan }: { bundle: Bundle; plan: Plan }) {
               {sem}
             </button>
           ))}
+          <button
+            type="button"
+            className="chip"
+            aria-pressed={state.nonBlockingOnly}
+            title="Only show courses that would not clash with the current plan"
+            onClick={() => patch({ nonBlockingOnly: !state.nonBlockingOnly })}
+          >
+            fits plan
+          </button>
           <input
             type="search"
             value={state.search}

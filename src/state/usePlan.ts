@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import type { Bundle, Course, PlacedExam, PlacedSession, Semester } from '../data/types.ts'
-import { collidingKeys, examCollisions, sessionCollisions } from './collisions.ts'
+import { blocksPlan, collidingKeys, examCollisions, sessionCollisions } from './collisions.ts'
 
 const STORAGE_KEY = 'upm-timetable-plan'
 
@@ -11,6 +11,8 @@ export type PlanState = {
   programmes: string[]
   semesters: Semester[]
   search: string
+  /** Sidebar shows only courses that would not clash with the current plan. */
+  nonBlockingOnly: boolean
 }
 
 const EMPTY: PlanState = {
@@ -19,6 +21,7 @@ const EMPTY: PlanState = {
   programmes: [],
   semesters: ['1S', '3S'],
   search: '',
+  nonBlockingOnly: false,
 }
 
 function readHash(): string[] | null {
@@ -118,15 +121,30 @@ export function usePlan(bundle: Bundle) {
     [sessionClashes, examClashes],
   )
 
+  const selectedKeys = useMemo(() => new Set(state.selected), [state.selected])
+
+  // Courses (not already in the plan) that would clash with it if added.
+  // Only computed when the filter is on and there is something to clash with.
+  const blockingKeys = useMemo(() => {
+    if (!state.nonBlockingOnly || selected.length === 0) return new Set<string>()
+    const out = new Set<string>()
+    for (const c of bundle.courses) {
+      if (selectedKeys.has(c.key)) continue
+      if (blocksPlan(c, placedSessions, placedExams, state.semesters)) out.add(c.key)
+    }
+    return out
+  }, [state.nonBlockingOnly, state.semesters, selected, selectedKeys, bundle.courses, placedSessions, placedExams])
+
   const visible = useMemo(() => {
     const q = state.search.trim().toLowerCase()
     return bundle.courses.filter((c) => {
       if (state.programmes.length > 0 && !c.progs.some((p) => state.programmes.includes(p))) return false
       if (!c.sessions.some((s) => state.semesters.includes(s.sem)) && c.sessions.length > 0) return false
       if (q && !c.name.toLowerCase().includes(q)) return false
+      if (state.nonBlockingOnly && blockingKeys.has(c.key)) return false
       return true
     })
-  }, [bundle.courses, state.programmes, state.semesters, state.search])
+  }, [bundle.courses, state.programmes, state.semesters, state.search, state.nonBlockingOnly, blockingKeys])
 
   const assumedExams = useMemo(
     () => placedExams.filter((p) => p.exam.assumed).length,
@@ -137,8 +155,9 @@ export function usePlan(bundle: Bundle) {
     state,
     patch,
     selected,
-    selectedKeys: new Set(state.selected),
+    selectedKeys,
     visible,
+    blockingKeys,
     addCourse,
     removeCourse,
     toggleCourse,

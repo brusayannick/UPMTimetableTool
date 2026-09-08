@@ -13,7 +13,7 @@
  *    labelled as such.
  */
 
-import type { PlacedExam, PlacedSession, Validity } from '../data/types.ts'
+import type { Course, PlacedExam, PlacedSession, Semester, Validity } from '../data/types.ts'
 
 export type Severity = 'certain' | 'possible'
 
@@ -124,4 +124,36 @@ export function collidingKeys(
     keys.add(c.b.course.key)
   }
   return keys
+}
+
+/**
+ * Would adding `candidate` to the plan create a session or exam clash with
+ * what is already placed? Same overlap rules as the plan itself (validity
+ * windows for sessions; assumed 2-hour tails count, so even a `possible`
+ * exam clash blocks). The candidate's own sessions are limited to the active
+ * semesters, mirroring the grid.
+ */
+export function blocksPlan(
+  candidate: Course,
+  placedSessions: PlacedSession[],
+  placedExams: PlacedExam[],
+  semesters: Semester[],
+): boolean {
+  const candSessions: PlacedSession[] = candidate.sessions
+    .filter((s) => semesters.includes(s.sem))
+    .map((session) => ({ course: candidate, session }))
+  if (candSessions.length > 0 && placedSessions.length > 0) {
+    const clashes = sessionCollisions([...placedSessions, ...candSessions])
+    if (clashes.some((c) => c.a.course.key === candidate.key || c.b.course.key === candidate.key)) {
+      return true
+    }
+  }
+  if (candidate.exams.length > 0 && placedExams.length > 0) {
+    const candExams: PlacedExam[] = candidate.exams.map((exam) => ({ course: candidate, exam }))
+    const clashes = examCollisions([...placedExams, ...candExams])
+    if (clashes.some((c) => c.a.course.key === candidate.key || c.b.course.key === candidate.key)) {
+      return true
+    }
+  }
+  return false
 }
