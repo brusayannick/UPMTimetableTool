@@ -8,9 +8,10 @@ export type CourseCardProps = {
   clashing: boolean
   semesters: Semester[]
   onToggle: (key: string) => void
+  onDetails: (key: string) => void
 }
 
-export function CourseCard({ course, inPlan, clashing, semesters, onToggle }: CourseCardProps) {
+export function CourseCard({ course, inPlan, clashing, semesters, onToggle, onDetails }: CourseCardProps) {
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: courseDragId(course.key),
     data: { type: 'course', key: course.key },
@@ -59,6 +60,22 @@ export function CourseCard({ course, inPlan, clashing, semesters, onToggle }: Co
         >
           {inPlan ? '✓' : '+'}
         </button>
+        {course.details && course.details.length > 0 && (
+          <button
+            type="button"
+            aria-label={`Show details for ${course.name}`}
+            title="Course details"
+            onPointerDown={(ev) => ev.stopPropagation()}
+            onClick={(ev) => {
+              ev.stopPropagation()
+              onDetails(course.key)
+            }}
+            className="mt-px flex h-4 w-4 shrink-0 items-center justify-center rounded border text-[11px] leading-none"
+            style={{ borderColor: 'var(--line-strong)', color: 'var(--text-faint)' }}
+          >
+            i
+          </button>
+        )}
 
         <div className="min-w-0 flex-1">
           <div

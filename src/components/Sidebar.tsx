@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { TRASH_DROP, useDroppable } from './dnd.ts'
 import { CourseCard } from './CourseCard.tsx'
+import { CourseDetails } from './CourseDetails.tsx'
 import { CustomLessons } from './CustomLessons.tsx'
 import { progColour, WEEKDAYS } from './format.ts'
 import type { Bundle } from '../data/types.ts'
@@ -11,6 +13,10 @@ export function Sidebar({ bundle, plan }: { bundle: Bundle; plan: Plan }) {
   // forgiving either way.
   const { setNodeRef, isOver } = useDroppable({ id: TRASH_DROP })
   const { state, patch, visible, selectedKeys, clashing, toggleCourse } = plan
+  const [detailsKey, setDetailsKey] = useState<string | null>(null)
+  // Look up in the full catalogue, not the filtered list, so the popup survives
+  // a filter change while it is open.
+  const detailsCourse = detailsKey ? (bundle.courses.find((c) => c.key === detailsKey) ?? null) : null
 
   const toggleProgramme = (code: string): void => {
     patch({
@@ -136,6 +142,7 @@ export function Sidebar({ bundle, plan }: { bundle: Bundle; plan: Plan }) {
                 clashing={selectedKeys.has(course.key) && clashing.has(course.key)}
                 semesters={state.semesters}
                 onToggle={toggleCourse}
+                onDetails={setDetailsKey}
               />
             ))}
           </ul>
@@ -164,6 +171,13 @@ export function Sidebar({ bundle, plan }: { bundle: Bundle; plan: Plan }) {
           ))}
         </div>
       </div>
+      {detailsCourse && (
+        <CourseDetails
+          course={detailsCourse}
+          semesters={state.semesters}
+          onClose={() => setDetailsKey(null)}
+        />
+      )}
     </aside>
   )
 }

@@ -46,6 +46,30 @@ export type Course = {
   elective: boolean
   sessions: Session[]
   exams: Exam[]
+  /** Incoming-student catalogue rows for this course, if the CSV knows it. */
+  details?: CourseDetails[]
+}
+
+/**
+ * One row of the ETSIINF incoming-student catalogue
+ * (`timetables/Application_ETSIINF_Courses_Incoming_Student_unprotected.csv`).
+ * Every field is the printed cell verbatim, except that empty cells and
+ * `#REF!` errors arrive as `''`.
+ */
+export type CourseDetails = {
+  plans: string
+  codes: string
+  name: string
+  englishName: string
+  year: string
+  credits: string
+  language: string
+  semester: string
+  group: string
+  level: string
+  quota: string
+  learningGuide: string
+  observations: string
 }
 
 export type Programme = {

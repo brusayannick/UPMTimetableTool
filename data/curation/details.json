@@ -1,0 +1,15 @@
+{
+  "$comment": [
+    "Manual catalogue matches for courses the automatic join cannot make.",
+    "Keys are bundle display names, values are CSV 'Name'/'English name' cells as",
+    "printed; both sides are normalised before comparing. An entry that matches",
+    "nothing is reported by export-bundle so stale mappings cannot linger."
+  ],
+  "extraMatches": {
+    "Big Data / Data Visualization": ["BIG DATA", "DATA VISUALIZATION"],
+    "Cloud Computing and Big Data Ecosystems Design": ["DESIGN OF CLOUD COMPUTING AND BIG DATA ECOSYSTEMS"],
+    "I&E Study": ["INNOVATION AND ENTREPENEURSHIP STUDY"],
+    "Intelligent Virtual Environments: Technologies, Architectures and Applications": ["INTELLIGENT VIRTUAL ENVIRONMENTS"],
+    "A10: Programmable Biology: DNA Computing and Biocircuit Engineering": ["PROGRAMMABLE BIOLOGY: DNA COMPUTING AMD BIOCIRCUITS ENGINEERING"]
+  }
+}

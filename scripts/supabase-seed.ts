@@ -20,6 +20,7 @@ type BundleCourse = {
   name: string
   progs: string[]
   elective?: boolean
+  details?: Record<string, string>[]
   sessions: {
     prog: string
     sem: string
@@ -152,6 +153,7 @@ await insert(
     name: c.name,
     progs: c.progs,
     elective: c.elective === true,
+    details: c.details ?? null,
   })),
 )
 

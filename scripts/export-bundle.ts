@@ -13,11 +13,12 @@
  */
 
 import { mkdirSync, writeFileSync } from 'node:fs'
-import { dirname } from 'node:path'
+import { dirname, join } from 'node:path'
 import { loadProgrammes } from './lib/curation.ts'
 import { openDb, rows } from './lib/db.ts'
+import { loadCatalogue, loadDetailExtras, matchDetails, type CatalogueRow } from './lib/details.ts'
 import { DEFAULT_EXAM_MINUTES } from './lib/examtime.ts'
-import { BUNDLE_PATH, DB_PATH } from './lib/paths.ts'
+import { BUNDLE_PATH, DB_PATH, ROOT } from './lib/paths.ts'
 import { EXAM_WINDOW } from './lib/time.ts'
 import type { Semester, Weekday } from './lib/types.ts'
 
@@ -54,6 +55,7 @@ type CourseOut = {
   elective: boolean
   sessions: SessionOut[]
   exams: ExamOut[]
+  details?: CatalogueRow[]
 }
 
 const courseRows = rows<{
@@ -139,6 +141,32 @@ for (const c of courseRows) {
     sessions: [],
     exams: [],
   })
+}
+
+// Incoming-student catalogue details, joined by normalised name. A course the
+// CSV does not know simply gets no `details` — the popup then shows the
+// timetable/exam data only. A stale curated mapping, however, fails the build:
+// it means a display name drifted and nobody noticed.
+const catalogue = loadCatalogue(
+  join(ROOT, 'timetables', 'Application_ETSIINF_Courses_Incoming_Student_unprotected.csv'),
+)
+const { byKey: detailsByKey, report: detailsReport } = matchDetails(
+  [...byKey.values()].map((c) => ({ key: c.key, name: c.name })),
+  catalogue,
+  loadDetailExtras(),
+)
+for (const [key, rows] of detailsByKey) {
+  byKey.get(key)!.details = rows
+}
+console.log(
+  `${detailsByKey.size}/${byKey.size} courses with catalogue details` +
+    (detailsReport.unmatchedCourses.length > 0
+      ? ` (${detailsReport.unmatchedCourses.length} without: ${detailsReport.unmatchedCourses.join('; ')})`
+      : ''),
+)
+if (detailsReport.unusedExtras.length > 0) {
+  console.error(`stale details.json mappings:\n  ${detailsReport.unusedExtras.join('\n  ')}`)
+  process.exit(1)
 }
 
 const seenSession = new Set<string>()
